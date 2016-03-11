@@ -1,0 +1,31 @@
+{
+  "name": "hitcher",
+  "version": "1.0.0",
+  "description": "Ridesharing app, bringing commuters together.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcarter78/hitcher.git"
+  },
+  "author": "Tashi, Jehnean, Josh & Matt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcarter78/hitcher/issues"
+  },
+  "homepage": "https://github.com/mcarter78/hitcher#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "express": "^4.13.4",
+    "express-sessions": "^1.0.5",
+    "hbs": "^4.0.0",
+    "mongoose": "^4.4.6",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0"
+  }
+}
