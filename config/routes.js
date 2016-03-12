@@ -1,8 +1,10 @@
 var express = require('express');
-var app = require('../server');
-var mongoose = require('mongoose');
+var router = express.Router();
+var usersController = require('../controllers/usersController');
+var bodyParser = require('body-parser');
 
 //routes
-app.get('users/new', usersController.new);
+router.route('/users/new')
+  .get(usersController.new);
 
-
+module.exports = router;
