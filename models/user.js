@@ -6,6 +6,7 @@ var UserSchema = new mongoose.Schema({
   passwordDigest: {type: String, required: true },
   imageUrl: String,
   mobileNumber: String,
+  thumbs: Number,
   trips: [TripSchema],
   createdAt: { type: Date, default: Date.now() }
 });
