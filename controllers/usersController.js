@@ -1,13 +1,12 @@
 var User = require('../models/user');
-var routes = require('../config/routes');
-var server = require('../server');
+var Trip = require('../models/trip');
 var bcrypt = require('bcrypt');
 
-var userController = {
-	new: function(req, res){
-		res.render('./users/new');
+var usersController = {
+	newUser: function (req, res){
+		res.render('./partials/users/new');
 	},
-	create: function(req, res){
+	createUser: function(req, res){
 		var name = req.body.name;
 		var email = req.body.email;
 		var passwordDigest = req.body.password; //TODO: bcrypt stuff;
@@ -20,11 +19,10 @@ var userController = {
 			mobileNumber: mobileNumber,
 			imageUrl: imageUrl
 		}, function(err, user){
-			err ?
-				res.status(500).send() :
-				res.status(201).send(JSON.stringify(user));
+			if (err) res.status(500).send();
+			res.status(201).send(JSON.stringify(user));
 		});
 	},
 };
 
-module.exports = userController;
+module.exports = usersController;
