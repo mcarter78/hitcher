@@ -9,6 +9,15 @@ function createUser(e){
     });
 }
 
+function login(e){
+  e.preventDefault(); 
+  var user = $(e.target).serialize();
+  $.post('/login', user)
+    .done(function(res){
+      console.log("user logged in", res);
+    });
+}
+
 
 
 

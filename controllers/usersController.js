@@ -21,6 +21,18 @@ var usersController = {
 			res.status(201).send(JSON.stringify(userData));
 		});
 	},
+	loginUser: function(req, res){
+		res.render('login'); 
+	}, 
+	authenticateUser: function(req, res){
+		console.log(req.body); 
+		var email = req.body.email; 
+		var password = req.body.password; 
+		// authenticate user 
+		User.authenticate(email, password, function(err, user){
+			res.status(200).send();  
+		});
+	}
 };
 
 module.exports = usersController;

@@ -5,11 +5,45 @@ var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var hbsutils = require('hbs-utils')(hbs);
 var session = require('express-session');
+var keygen = require('keygenerator');
 var port = process.env.PORT || 3000;
+var User = require('./models/user');
 
 //middleware
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+
+// create the session
+app.use(
+  session({
+    secret: keygen._({specials: true}), 
+    resave: false, 
+    saveUninitialized: true
+  })
+);
+
+// extending the 'req' obj to help manage sessions 
+app.use(function(req, res, next){
+  //login user
+  req.login = function(user) {
+    req.session.userId = user._id; 
+  }; 
+  // find current user
+  req.currentUser = function (cb) {
+    User.findOne({ _id: req.session.userId }, 
+    function(err, user){ 
+      req.user = user; 
+      cb(null, user); 
+      }); 
+  };
+  // log out current user 
+  req.logout = function() {
+    req.session.userId = null; 
+    req.user = null;
+  }; 
+  // call the next middleware in the stack
+  next(); 
+});
 
 //controllers
 var homeController = require('./controllers/homeController');
@@ -18,9 +52,10 @@ var usersController = require('./controllers/usersController');
 
 //routes
 app.get('/', homeController.home);
-
 app.get('/users/new', usersController.newUser);
 app.post('/users', usersController.createUser);
+app.get("/login", usersController.loginUser); 
+app.post('/login', usersController.authenticateUser); 
 
 // app.post(["/users", "/signup"], function signup(req, res) {
 //   // grab the user from the params
@@ -33,8 +68,6 @@ app.post('/users', usersController.createUser);
 //     res.send(email + " is registered!\n");
 //   });
 // });
-
-
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');

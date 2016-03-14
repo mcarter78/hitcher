@@ -24,6 +24,7 @@
     "express-sessions": "^1.0.5",
     "hbs": "^4.0.0",
     "hbs-utils": "0.0.3",
+    "keygenerator": "^1.0.4",
     "mongoose": "^4.4.6",
     "morgan": "^1.7.0"
   },
