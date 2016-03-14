@@ -1,13 +1,17 @@
-$(document).ready(function(){
-  console.log('app running');
-});
+console.log('app running');
+		function createUser(e){
+		console.log("called!");
+	  e.preventDefault();
+		var user = $(e.target).serialize();
+	  $.post('/users', user)
+	    .done(function(res){
+	    	console.log("user created", res);
+	    });
+	}
 
-var hitcher = {};
+	
 
-hitcher.createUser = function(e){
-  e.preventDefault();
-  $.post('/users', user)
-    .done(function(){
-      //do something
-    });
-};
+
+
+// $(document).ready(function(){
+// });

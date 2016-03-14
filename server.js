@@ -15,6 +15,7 @@ var usersController = require('./controllers/usersController');
 app.get('/', homeController.home);
 
 app.get('/users/new', usersController.newUser);
+app.post('/users', usersController.createUser);
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');
