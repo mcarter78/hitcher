@@ -14,9 +14,11 @@ var usersController = {
 		user.password = req.body.password; //TODO: bcrypt stuff;
 		user.mobileNumber = req.body.mobileNumber;
 		user.imageUrl = req.body.imageUrl;
-		User.createSecure(user, function(err, user) {
+		User.createSecure(user, function(err, userData) {
+			console.log(user);
+			console.log(userData);
 			if (err) res.status(500).send();
-			res.status(201).send(JSON.stringify(user));
+			res.status(201).send(JSON.stringify(userData));
 		});
 	},
 };
