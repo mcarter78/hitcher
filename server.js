@@ -5,10 +5,12 @@ var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var hbsutils = require('hbs-utils')(hbs);
 var port = process.env.PORT || 3000;
+var logger = require('morgan');
 
 //middleware
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(logger('dev'));
 
 //controllers
 var homeController = require('./controllers/homeController');
