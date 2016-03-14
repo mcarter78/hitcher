@@ -9,6 +9,15 @@ function createUser(e){
     });
 }
 
+function login(e){
+  e.preventDefault(); 
+  var user = $(e.target).serialize();
+  $.post('/login', user)
+    .done(function(res){
+      console.log("user logged in", res);
+    });
+}
+
 function createTrip(e){
   e.preventDefault();
   var trip = $(e.target).serialize();
@@ -24,13 +33,3 @@ $('#home-form input').on('click', function(e){
   var userId = 'testId';
   window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
 });
-
-
-
-
-
-
-
-
-// $(document).ready(function(){
-// });
