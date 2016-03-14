@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var hbsutils = require('hbs-utils')(hbs);
+var session = require('express-session');
+var db = require("./models");
 var port = process.env.PORT || 3000;
 
 //middleware
@@ -20,6 +22,20 @@ app.get('/', homeController.home);
 
 app.get('/users/new', usersController.newUser);
 app.post('/users', usersController.createUser);
+
+// app.post(["/users", "/signup"], function signup(req, res) {
+//   // grab the user from the params
+//   var user = req.body.user;
+//   // pull out their email & password
+//   var email = user.email;
+//   var password = user.password;
+//   // create the new user
+//   db.User.createSecure(email, password, function() {
+//     res.send(email + " is registered!\n");
+//   });
+// });
+
+
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');
