@@ -5,14 +5,17 @@ var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var hbsutils = require('hbs-utils')(hbs);
 var port = process.env.PORT || 3000;
+var logger = require('morgan');
 
 //middleware
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(logger('dev'));
 
 //controllers
 var homeController = require('./controllers/homeController');
 var usersController = require('./controllers/usersController');
+var tripsController = require('./controllers/tripsController');
 
 
 //routes
@@ -20,6 +23,9 @@ app.get('/', homeController.home);
 
 app.get('/users/new', usersController.newUser);
 app.post('/users', usersController.createUser);
+
+app.get('/trips/new', tripsController.newTrip);
+app.post('/trips', tripsController.createTrip);
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');

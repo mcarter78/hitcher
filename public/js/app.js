@@ -9,6 +9,23 @@ function createUser(e){
     });
 }
 
+function createTrip(e){
+  e.preventDefault();
+  var trip = $(e.target).serialize();
+  console.log(trip);
+  $.post('/trips', trip)
+    .done(function(res){
+      console.log("trip created", res);
+    });
+}
+
+$('#home-form input').on('click', function(e){
+  console.log('clicked');
+  var userId = 'testId';
+  window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
+});
+
+
 
 
 
