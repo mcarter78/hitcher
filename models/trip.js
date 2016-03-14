@@ -11,5 +11,4 @@ var TripSchema = new mongoose.Schema({
 
 var Trip = mongoose.model('Trip', TripSchema);
 
-module.exports = TripSchema;
 module.exports = Trip;

@@ -8,20 +8,17 @@ var usersController = {
 	},
 	createUser: function(req, res){
 		console.log('creating');
-		var name = req.body.name;
-		var email = req.body.email;
-		var passwordDigest = req.body.passwordDigest; //TODO: bcrypt stuff;
-		var mobileNumber = req.body.mobileNumber;
-		var imageUrl = req.body.imageUrl;
-		User.create({
-			name: name,
-			email: email,
-			passwordDigest: passwordDigest,
-			mobileNumber: mobileNumber,
-			imageUrl: imageUrl
-		}, function(err, user){
+		var user = {};
+		user.name = req.body.name;
+		user.email = req.body.email;
+		user.password = req.body.password; //TODO: bcrypt stuff;
+		user.mobileNumber = req.body.mobileNumber;
+		user.imageUrl = req.body.imageUrl;
+		User.createSecure(user, function(err, userData) {
+			console.log(user);
+			console.log(userData);
 			if (err) res.status(500).send();
-			res.status(201).send(JSON.stringify(user));
+			res.status(201).send(JSON.stringify(userData));
 		});
 	}
 };

@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var hbsutils = require('hbs-utils')(hbs);
+var session = require('express-session');
 var port = process.env.PORT || 3000;
 var logger = require('morgan');
 
