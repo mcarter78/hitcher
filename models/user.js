@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var TripSchema = require('./trip');
 
 var UserSchema = new mongoose.Schema({
   email: {type: String, required: true },
