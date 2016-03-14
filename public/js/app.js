@@ -6,6 +6,7 @@ function createUser(e){
   $.post('/users', user)
     .done(function(res){
     	console.log("user created", res);
+      window.location.replace('http://localhost:3000/trips/new');
     });
 }
 
