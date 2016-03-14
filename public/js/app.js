@@ -9,6 +9,20 @@ function createUser(e){
     });
 }
 
+function createTrip(e){
+  e.preventDefault();
+  var trip = $(e.target).serialize();
+  $.post('/trips', trip)
+    .done(function(res){
+      console.log("trip created", res);
+    });
+}
+
+$('#home-form').on('click', function(){
+  $.get('/trips/new');
+});
+
+
 
 
 

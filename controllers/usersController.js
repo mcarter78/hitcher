@@ -23,7 +23,7 @@ var usersController = {
 			if (err) res.status(500).send();
 			res.status(201).send(JSON.stringify(user));
 		});
-	},
+	}
 };
 
 module.exports = usersController;

@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 //controllers
 var homeController = require('./controllers/homeController');
 var usersController = require('./controllers/usersController');
+var tripsController = require('./controllers/tripsController');
 
 
 //routes
@@ -20,6 +21,9 @@ app.get('/', homeController.home);
 
 app.get('/users/new', usersController.newUser);
 app.post('/users', usersController.createUser);
+
+app.get('/trips/new', tripsController.newTrip);
+app.post('/trips', tripsController.createTrip);
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');
