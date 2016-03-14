@@ -7,9 +7,10 @@ var usersController = {
 		res.render('./partials/users/new');
 	},
 	createUser: function(req, res){
+		console.log('creating');
 		var name = req.body.name;
 		var email = req.body.email;
-		var passwordDigest = req.body.password; //TODO: bcrypt stuff;
+		var passwordDigest = req.body.passwordDigest; //TODO: bcrypt stuff;
 		var mobileNumber = req.body.mobileNumber;
 		var imageUrl = req.body.imageUrl;
 		User.create({
