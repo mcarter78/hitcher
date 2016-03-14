@@ -14,18 +14,15 @@ var UserSchema = new mongoose.Schema({
 });
 
 // create a new user with secure (hashed) password (for sign up)
-UserSchema.statics.createSecure = function (email, password, cb) {
+UserSchema.statics.createSecure = function (user, cb) {
   // `_this` now references our schema
   var _this = this;
   // generate some salt
   bcrypt.genSalt(function (err, salt) {
     // hash the password with the salt
-    bcrypt.hash(password, salt, function (err, hash) {
+    bcrypt.hash(user.password, salt, function (err, hash) {
       // build the user object
-      var user = {
-        email: email,
-        passwordDigest: hash
-      };
+      user.passwordDigest = hash;
       // create a new user in the db with hashed password and execute the callback when done
       _this.create(user, cb);
     });
