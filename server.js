@@ -1,3 +1,4 @@
+// required
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
@@ -8,10 +9,12 @@ var session = require('express-session');
 var keygen = require('keygenerator');
 var port = process.env.PORT || 3000;
 var User = require('./models/user');
+var logger = require('morgan');
 
 //middleware
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(logger('dev'));
 
 // create the session
 app.use(
@@ -48,6 +51,7 @@ app.use(function(req, res, next){
 //controllers
 var homeController = require('./controllers/homeController');
 var usersController = require('./controllers/usersController');
+var tripsController = require('./controllers/tripsController');
 
 
 //routes
@@ -56,18 +60,8 @@ app.get('/users/new', usersController.newUser);
 app.post('/users', usersController.createUser);
 app.get("/login", usersController.loginUser); 
 app.post('/login', usersController.authenticateUser); 
-
-// app.post(["/users", "/signup"], function signup(req, res) {
-//   // grab the user from the params
-//   var user = req.body.user;
-//   // pull out their email & password
-//   var email = user.email;
-//   var password = user.password;
-//   // create the new user
-//   db.User.createSecure(email, password, function() {
-//     res.send(email + " is registered!\n");
-//   });
-// });
+app.get('/trips/new', tripsController.newTrip);
+app.post('/trips', tripsController.createTrip);
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');

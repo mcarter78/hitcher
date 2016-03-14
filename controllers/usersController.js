@@ -11,7 +11,7 @@ var usersController = {
 		var user = {};
 		user.name = req.body.name;
 		user.email = req.body.email;
-		user.password = req.body.password; //TODO: bcrypt stuff;
+		user.password = req.body.password; 
 		user.mobileNumber = req.body.mobileNumber;
 		user.imageUrl = req.body.imageUrl;
 		User.createSecure(user, function(err, userData) {
