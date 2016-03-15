@@ -3,13 +3,20 @@ var Trip = require('../models/trip');
 
 var tripsController = {
   newTrip: function(req, res){
-    res.render('./partials/trips/new');
+    req.currentUser(function(err, user){
+      console.log(user);
+      if(user === null){
+        res.redirect('/login');
+      } else {
+      res.render('./partials/trips/new');
+      }
+		});
+
   },
   createTrip: function(req, res){
     // TODO: check if user is logged in, if not redirect to login
-    if(req.currentUser === null){
-      res.redirect('/login');
-    }
+
+
     var trip = {};
 		console.log('creating');
 		trip.fromLocation = req.body.fromLocation;

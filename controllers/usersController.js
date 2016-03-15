@@ -15,10 +15,13 @@ var usersController = {
 		user.mobileNumber = req.body.mobileNumber;
 		user.imageUrl = req.body.imageUrl;
 		User.createSecure(user, function(err, userData) {
-			console.log(user);
 			console.log(userData);
+			req.login(userData);
+			req.currentUser(function(err, otherUser){
+				console.log("ITS ME",otherUser);
+			});
 			if (err) res.status(500).send();
-			res.status(201).send(JSON.stringify(userData));
+			res.status(201).redirect(JSON.stringify(userData));
 		});
 	},
 	loginUser: function(req, res){
