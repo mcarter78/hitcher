@@ -14,22 +14,17 @@ var tripsController = {
 
   },
   createTrip: function(req, res){
-    // TODO: check if user is logged in, if not redirect to login
-
-
     var trip = {};
-		console.log('creating');
 		trip.fromLocation = req.body.fromLocation;
 		trip.toLocation = req.body.toLocation;
-
-    // TODO: set Trips id's based on whether user choses driver or rider
-    // if (req.body.userType) === 'Driver' {
-    //  trip.driverId = currentUser.id
-    // }
-    // else if (req.body.userType) === 'Rider' {
-    //   trip.riderId = currentUser.id
-    // }
-
+    // set Trips id's based on whether user choses driver or rider
+    if (req.body.userType === 'Driver') {
+      trip.driverId = req.session.userId;
+    }
+    else if (req.body.userType === 'Rider') {
+      trip.riderId = req.session.userId;
+    }
+    console.log(trip);
 		Trip.create(trip, function(err, trip){
 			if (err) res.status(500).send();
 			res.status(201).send(JSON.stringify(trip));
