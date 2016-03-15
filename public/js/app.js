@@ -1,6 +1,10 @@
 console.log('app running');
 
-function createUser(e){
+
+var hitcher = {};
+
+
+hitcher.createUser = function(e){
   e.preventDefault();
 	var user = $(e.target).serialize();
   $.post('/users', user)
@@ -10,7 +14,7 @@ function createUser(e){
     });
 }
 
-function login(e){
+hitcher.login = function(e){
   e.preventDefault();
   var user = $(e.target).serialize();
   $.post('/login', user)
@@ -20,7 +24,7 @@ function login(e){
     });
 }
 
-function createTrip(e){
+hitcher.createTrip = function(e){
   e.preventDefault();
   var trip = $(e.target).serialize();
   console.log(trip);
@@ -30,7 +34,21 @@ function createTrip(e){
     });
 }
 
+hitcher.renderTrips = function(users){
+  console.log(users);
+  var $tripList = $("#trip-list");
+  // clear list
+  $tripList.html("");
+  // create template
+  var tripTemplate = Handlebars.compile($("#trip-template").html());
+  // pass data into the template
+  var compliledHtml = tripTemplate({users: users});
+  // append the rendered html to the page
+  $tripList.append(compliledHtml);
+}
+
 $('#home-form input').on('click', function(e){
   console.log('clicked');
+  var userId = 'testId';
   window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
 });

@@ -20,12 +20,10 @@ var tripsController = {
       if (user === null){
         res.redirect('/login');
       } else {
-
         var trip = {};
     		trip.fromLocation = req.body.fromLocation;
     		trip.toLocation = req.body.toLocation;
         // set Trips id's based on whether user choses driver or rider
-        console.log(req.session.userId);
         if (req.body.userType === 'Driver') {
           trip.driverId = req.session.userId;
         }
@@ -35,11 +33,19 @@ var tripsController = {
         console.log(trip);
     		Trip.create(trip, function(err, trip){
     			if (err) res.status(500).send();
+          var id = req.session.userId;
+          User.findById(id, function(err, user){
+            console.log(user.trips);
+            user.trips.push(trip);
+            console.log(user);
+            user.save();
+          });
+
     			res.status(201).send(JSON.stringify(trip));
     		});
-	     }
-     });
-   }
+      }
+    });
+  }
 };
 
 module.exports = tripsController;

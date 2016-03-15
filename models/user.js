@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var TripSchema = require('./trip');
+var TripSchema = require('./trip').schema;
 var bcrypt = require('bcrypt');
-	
+
 var UserSchema = new mongoose.Schema({
   email: {type: String, required: true },
   name: {type: String, required: false },

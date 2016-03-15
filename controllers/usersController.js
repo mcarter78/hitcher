@@ -46,7 +46,15 @@ var usersController = {
 			console.log("ITS ME",otherUser);
 		});
 		res.redirect('/');
-	}
+	},
+	indexUsers: function(req, res){
+      console.log("indexing");
+      User.find({}, function(err, users){
+      console.log(users);
+      if (err) res.status(500).send();
+      res.render('./partials/trips/index', { trips: JSON.stringify(users) });
+    });
+  }
 };
 
 module.exports = usersController;
