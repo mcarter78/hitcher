@@ -49,9 +49,12 @@ var tripsController = {
     showTrip: function( req, res ) {
     // var id = req.params.id;
     var id = req.params.id;
-    Trip.findById({_id: id}, function(res){
-      console.log("trips here", res);
+    console.log(id);
+    Trip.findById(id, function(err, trip){
+      res.status(201).send(JSON.stringify(trip));
     });
+      // console.log("trips here", user);
+    // res.status(201).send(JSON.stringify(trip));
     res.render('./partials/trips/show');
   }
 };

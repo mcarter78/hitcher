@@ -47,6 +47,15 @@ hitcher.renderTrips = function(users){
   $tripList.append(compliledHtml);
 }
 
+hitcher.showTrip = function(users){
+  console.log(users);
+  var $tripShow = $("#trip-show");
+  $tripShow.html("");
+  var tripShow = Handlebars.compile($("#show-trip").html());
+  var compliledHtml = tripShow({users: users});
+  $tripShow.append(compliledHtml);
+}
+
 $('#home-form input').on('click', function(e){
   console.log('clicked');
   var userId = 'testId';
