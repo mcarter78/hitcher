@@ -32,6 +32,5 @@ function createTrip(e){
 
 $('#home-form input').on('click', function(e){
   console.log('clicked');
-  var userId = 'testId';
   window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
 });
