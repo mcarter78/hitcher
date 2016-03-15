@@ -3,9 +3,9 @@ var TripSchema = require('./trip').schema;
 var bcrypt = require('bcrypt');
 
 var UserSchema = new mongoose.Schema({
-  email: {type: String, required: true },
-  name: {type: String, required: false },
-  passwordDigest: {type: String, required: true },
+  email: {type: String},
+  name: {type: String},
+  passwordDigest: {type: String},
   imageUrl: String,
   mobileNumber: String,
   thumbs: Number,

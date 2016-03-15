@@ -6,10 +6,10 @@
 		<script id="trip-template" type="text/x-handlebars-template">
 			\{{#each users}}
 				<div id="\{{_id}}" class="trip trip-card">
-					<img src="\{{imageUrl}}">
+					<img class="avatar-image" src="\{{imageUrl}}">
 					<p class="trip-attribute">\{{name}}</p>
-					<p class="trip-attribute">\{{trips.fromLocation}}</p>
-					<p class="trip-attribute">\{{trips.toLocation}}</p>
+					<p class="trip-attribute">\{{trips.[0].fromLocation}}</p>
+					<p class="trip-attribute">\{{trips.[0].toLocation}}</p>
 					<p class="trip-attribute">\{{thumbs}}</p>
 					<button class="btn">Pick up \{{name}}</button>
 				</div>
