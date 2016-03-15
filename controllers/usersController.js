@@ -11,7 +11,7 @@ var usersController = {
 		var user = {};
 		user.name = req.body.name;
 		user.email = req.body.email;
-		user.password = req.body.password; 
+		user.password = req.body.password;
 		user.mobileNumber = req.body.mobileNumber;
 		user.imageUrl = req.body.imageUrl;
 		User.createSecure(user, function(err, userData) {
@@ -22,16 +22,27 @@ var usersController = {
 		});
 	},
 	loginUser: function(req, res){
-		res.render('login'); 
-	}, 
+		res.render('login');
+	},
 	authenticateUser: function(req, res){
-		console.log(req.body); 
-		var email = req.body.email; 
-		var password = req.body.password; 
-		// authenticate user 
+		console.log(req.body);
+		var email = req.body.email;
+		var password = req.body.password;
+		// authenticate user
 		User.authenticate(email, password, function(err, user){
-			res.status(200).send();  
+			req.login(user);
+			req.currentUser(function(err, otherUser){
+				console.log("ITS ME",otherUser);
+			});
+			res.status(200).send();
 		});
+	},
+	logoutUser: function(req, res){
+		req.logout();
+		req.currentUser(function(err, otherUser){
+			console.log("ITS ME",otherUser);
+		});
+		res.redirect('/');
 	}
 };
 

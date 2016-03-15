@@ -11,7 +11,7 @@ function createUser(e){
 }
 
 function login(e){
-  e.preventDefault(); 
+  e.preventDefault();
   var user = $(e.target).serialize();
   $.post('/login', user)
     .done(function(res){
@@ -26,6 +26,14 @@ function createTrip(e){
   $.post('/trips', trip)
     .done(function(res){
       console.log("trip created", res);
+    });
+}
+
+function logout(e){
+  e.preventDefault();
+  $.get('/logout')
+    .done(function(res){
+      console.log('logged out');
     });
 }
 
