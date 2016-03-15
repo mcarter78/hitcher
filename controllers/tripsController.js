@@ -29,14 +29,13 @@ var tripsController = {
 			if (err) res.status(500).send();
 			res.status(201).send(JSON.stringify(trip));
 		});
-	}, 
+	},
   indexTrips: function(req, res){
     console.log("indexing");
       Trip.find({}, function(err, trips){
-      console.log(trips)
+      console.log(trips);
       if (err) res.status(500).send();
-      // res.render('./partials/trips/index')
-      res.send(JSON.stringify(trips));
+      res.render('./partials/trips/index', { trips: JSON.stringify(trips) });
     });
   }
 };

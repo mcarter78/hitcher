@@ -34,16 +34,17 @@ console.log('app running');
       });
   }
 
-  hitcher.renderTrips = function(trips){ 
-    var $tripList = $("#trip-list"); 
-    // clear list 
+  hitcher.renderTrips = function(trips){
+    console.log(trips);
+    var $tripList = $("#trip-list");
+    // clear list
     $tripList.html("");
-    // create template 
-    var tripTemplate = Handlebars.compile($("#trip-template").html()); 
-    // pass data into the template 
-    var compliledHtml = tripTemplate({trips: trips}); 
-    // append the rendered html to the page 
-    $tripList.append(compiledHtml); 
+    // create template
+    var tripTemplate = Handlebars.compile($("#trip-template").html());
+    // pass data into the template
+    var compliledHtml = tripTemplate({trips: trips});
+    // append the rendered html to the page
+    $tripList.append(compliledHtml);
   }
 
   $('#home-form input').on('click', function(e){
