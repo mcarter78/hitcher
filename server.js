@@ -19,33 +19,33 @@ app.use(logger('dev'));
 // create the session
 app.use(
   session({
-    secret: keygen._({specials: true}), 
-    resave: false, 
+    secret: keygen._({specials: true}),
+    resave: false,
     saveUninitialized: true
   })
 );
 
-// extending the 'req' obj to help manage sessions 
+// extending the 'req' obj to help manage sessions
 app.use(function(req, res, next){
   //login user
   req.login = function(user) {
-    req.session.userId = user._id; 
-  }; 
+    req.session.userId = user._id;
+  };
   // find current user
   req.currentUser = function (cb) {
-    User.findOne({ _id: req.session.userId }, 
-    function(err, user){ 
-      req.user = user; 
-      cb(null, user); 
-      }); 
+    User.findOne({ _id: req.session.userId },
+    function(err, user){
+      req.user = user;
+      cb(null, user);
+      });
   };
-  // log out current user 
+  // log out current user
   req.logout = function() {
-    req.session.userId = null; 
+    req.session.userId = null;
     req.user = null;
-  }; 
+  };
   // call the next middleware in the stack
-  next(); 
+  next();
 });
 
 //controllers
@@ -58,10 +58,11 @@ var tripsController = require('./controllers/tripsController');
 app.get('/', homeController.home);
 app.get('/users/new', usersController.newUser);
 app.post('/users', usersController.createUser);
-app.get("/login", usersController.loginUser); 
-app.post('/login', usersController.authenticateUser); 
+app.get("/login", usersController.loginUser);
+app.post('/login', usersController.authenticateUser);
 app.get('/trips/new', tripsController.newTrip);
 app.post('/trips', tripsController.createTrip);
+app.get('/logout', usersController.logoutUser);
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');

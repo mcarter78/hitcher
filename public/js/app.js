@@ -6,16 +6,17 @@ function createUser(e){
   $.post('/users', user)
     .done(function(res){
     	console.log("user created", res);
-      window.location.replace('http://localhost:3000/trips/new');
+      window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
     });
 }
 
 function login(e){
-  e.preventDefault(); 
+  e.preventDefault();
   var user = $(e.target).serialize();
   $.post('/login', user)
     .done(function(res){
       console.log("user logged in", res);
+      window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
     });
 }
 
