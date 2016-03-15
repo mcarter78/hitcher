@@ -54,15 +54,19 @@ var usersController = require('./controllers/usersController');
 var tripsController = require('./controllers/tripsController');
 
 
-//routes
+//home routes
 app.get('/', homeController.home);
-app.get('/users/new', usersController.newUser);
-app.post('/users', usersController.createUser);
+// sessions routes
 app.get("/login", usersController.loginUser);
 app.post('/login', usersController.authenticateUser);
+app.get('/logout', usersController.logoutUser);
+//user routes
+app.get('/users/new', usersController.newUser);
+app.post('/users', usersController.createUser);
+//trip routes
 app.get('/trips/new', tripsController.newTrip);
 app.post('/trips', tripsController.createTrip);
-app.get('/logout', usersController.logoutUser);
+
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');

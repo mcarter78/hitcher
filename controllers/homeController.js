@@ -1,8 +1,10 @@
 var User = require('../models/user');
 var Trip = require('../models/trip');
 
-function home(req, res){
-  res.render("./partials/home");
-}
+var homeController = {
+  home: function(req, res){
+    res.render("./partials/home");
+  }
+};
 
-module.exports = {home:home};
+module.exports = homeController;
