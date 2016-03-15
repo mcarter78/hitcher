@@ -69,7 +69,7 @@ var fake_users = [
   name: "Ram Grand", 
   password: "Password", 
   ImageUrl:"http://cdn.photonesta.com/images/i51.tinypic.com/1zwzpmr.png", 
-  mobileNumber: "767-212-8898" },
+  mobileNumber: "767-212-8898" }
 ];
 
 User.fake_users.remove({}, function(err, fake_users){
