@@ -21,7 +21,7 @@ var usersController = {
 				console.log("ITS ME",otherUser);
 			});
 			if (err) res.status(500).send();
-			res.status(201).redirect(JSON.stringify(userData));
+			res.status(201).send();
 		});
 	},
 	loginUser: function(req, res){
