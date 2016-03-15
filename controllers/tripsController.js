@@ -27,17 +27,25 @@ var tripsController = {
     console.log(trip);
 		Trip.create(trip, function(err, trip){
 			if (err) res.status(500).send();
+      var id = req.session.userId;
+      User.findById(id, function(err, user){
+        console.log(user.trips);
+        user.trips.push(trip);
+        console.log(user);
+        user.save();
+      });
+
 			res.status(201).send(JSON.stringify(trip));
 		});
 	},
-  indexTrips: function(req, res){
-    console.log("indexing");
-      Trip.find({}, function(err, trips){
-      console.log(trips);
-      if (err) res.status(500).send();
-      res.render('./partials/trips/index', { trips: JSON.stringify(trips) });
-    });
-  }
+  // indexTrips: function(req, res){
+  //     console.log("indexing");
+  //     Trip.find({}, function(err, trips){
+  //     console.log(trips);
+  //     if (err) res.status(500).send();
+  //     res.render('./partials/trips/index', { trips: JSON.stringify(trips) });
+  //   });
+  // }
 };
 
 module.exports = tripsController;
