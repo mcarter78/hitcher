@@ -45,6 +45,14 @@ var tripsController = {
     		});
       }
     });
+  },
+    showTrip: function( req, res ) {
+    // var id = req.params.id;
+    var id = req.params.id;
+    Trip.findById({_id: id}, function(res){
+      console.log("trips here", res);
+    });
+    res.render('./partials/trips/show');
   }
 };
 
