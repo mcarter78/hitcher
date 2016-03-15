@@ -1,0 +1,21 @@
+<div class="page-content">
+	<h3>There are NUMBER riders that need a ride from fromLocation to toLocation.</h3>
+	<div id="trip-list"></div>
+		<!-- client-side trip list -->
+		<!-- TODO: we are going to filter these by relevance later -->
+		<script id="trip-template" type="text/x-handlebars-template">
+			\{{#each users}}
+				<div id="\{{_id}}" class="trip trip-card">
+					<img src="\{{imageUrl}}">
+					<p class="trip-attribute">\{{name}}</p>
+					<p class="trip-attribute">\{{trips.fromLocation}}</p>
+					<p class="trip-attribute">\{{trips.toLocation}}</p>
+					<p class="trip-attribute">\{{thumbs}}</p>
+					<button class="btn">Pick up \{{name}}</button>
+				</div>
+			\{{/each}}
+		</script>
+
+</div>
+
+<script>hitcher.renderTrips({{{trips}}})</script>
