@@ -35,15 +35,15 @@ hitcher.createTrip = function(e){
     });
 }
 
-hitcher.renderTrips = function(users){
-  console.log(users);
+hitcher.renderTrips = function(user){
+  console.log(user);
   var $tripList = $("#trip-list");
   // clear list
   $tripList.html("");
   // create template
   var tripTemplate = Handlebars.compile($("#trip-template").html());
   // pass data into the template
-  var compiledHtml = tripTemplate({users: users});
+  var compiledHtml = tripTemplate({driver: user, trips: user.trips});
   // append the rendered html to the page
   $tripList.append(compiledHtml);
 }

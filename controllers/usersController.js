@@ -47,6 +47,7 @@ var usersController = {
 		});
 		res.redirect('/');
 	},
+	//render riders
 	indexUsers: function(req, res){
       console.log("indexing");
 			var sendUsers = [];
@@ -68,11 +69,17 @@ var usersController = {
 		      		}
 	    		}
 					// console.log('SENDUSERS:', sendUsers);
-	  			res.render('./partials/trips/index', { trips: JSON.stringify(sendUsers) });
+	  			res.render('./partials/trips/index', { users: JSON.stringify(sendUsers) });
 	  		});
-
     });
+	    		Trip.find({}, function(err, trips){	
+	    		for (var x=0; x<trips.length; x++) {
+	    			console.log("testing: " + trips[x]);
+	    			console.log("total trip created: " + trips.length);
+	    		}
+	    		});
   }
+
 };
 
 module.exports = usersController;
