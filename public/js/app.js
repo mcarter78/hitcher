@@ -45,7 +45,7 @@ hitcher.renderTrips = function(users){
   // pass data into the template
   var compiledHtml = tripTemplate({users: users});
   // append the rendered html to the page
-  $tripList.append(compliledHtml);
+  $tripList.append(compiledHtml);
 }
 
 hitcher.showTrip = function(trips){
