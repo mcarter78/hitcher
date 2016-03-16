@@ -10,14 +10,14 @@
 				<div id="\{{_id}}" class="trip trip-card">
 				<p>Driver: <p/>
 					<img class="avatar-image" src="\{{driver.imageUrl}}">
-					<p class="trip-attribute">\{{driver.name}}</p>
-					<p class="trip-attribute">\{{driver._id}}</p>
+					<p class="trip-attribute">Name: \{{name}}</p>
+					<p class="trip-attribute">Email: \{{email}}</p>
 					<p>Riders: </p>
 					<p class="trip-attribute">\{{fromLocation}}</p>
 					<p class="trip-attribute">\{{toLocation}}</p>
 					<p class="trip-attribute">\{{_id}}</p>
 					<p class="trip-attribute">\{{thumbs}}</p>
-					{{!-- <a href="/trips/\{{_id}}" class="btn">Pick up \{{name}}</a> --}}
+					<a href="/trips/\{{_id}}" class="btn">Pick up \{{name}}</a>
 				</div>
 			\{{/each}}
 		<!-- logged in userInfo ends here -->

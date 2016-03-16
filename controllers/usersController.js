@@ -72,12 +72,12 @@ var usersController = {
 	  			res.render('./partials/trips/index', { users: JSON.stringify(sendUsers) });
 	  		});
     });
-	    		Trip.find({}, function(err, trips){	
-	    		for (var x=0; x<trips.length; x++) {
-	    			console.log("testing: " + trips[x]);
-	    			console.log("total trip created: " + trips.length);
-	    		}
-	    		});
+	    		// Trip.find({}, function(err, trips){	
+	    		// for (var x=0; x<trips.length; x++) {
+	    		// 	console.log("testing: " + trips[x]);
+	    		// 	console.log("total trip created: " + trips.length);
+	    		// }
+	    		// });
   }
 
 };
