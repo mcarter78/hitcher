@@ -45,7 +45,7 @@ app.use(function(req, res, next){
     req.user = null;
   };
   // call the next middleware in the stack
-  next();
+  req.currentUser(next);
 });
 
 //controllers
@@ -66,8 +66,12 @@ app.post('/users', usersController.createUser);
 //trip routes
 app.get('/trips/new', tripsController.newTrip);
 app.post('/trips', tripsController.createTrip);
-app.get('/trips', usersController.indexUsers); 
+app.get('/trips', usersController.indexUsers);
 app.get('/trips/:id', tripsController.showTrip);
+//nav routes
+app.get('/checkuser', homeController.nav);
+app.get('/help', homeController.help);
+app.get('/contact', homeController.contact);
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');

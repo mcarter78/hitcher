@@ -1,6 +1,6 @@
 body {
   font-family: "Open Sans", Arial, sans-serif;
-  margin-top: 50px; 
+  margin-top: 50px;
 }
 
 /* Begin Font Styles */
@@ -72,15 +72,20 @@ a:hover, a:focus, a:active {
 }
 
 input {
-	padding: 1.1em; 
-	color: #333; 
+	padding: 1.1em;
+	color: #333;
   margin: 5px;
+}
+
+#home-form input:focus,
+#home-form input:active {
+  outline: none;
 }
 
 /* End Form Elements */
 
 .avatar-image{
-  height:60px; 
+  height:60px;
   width:60px;
   border: 3px solid grey;
   border-radius: 50%;
@@ -91,5 +96,3 @@ input {
   border-radius: 5px;
   margin: 5px;
 }
-
-

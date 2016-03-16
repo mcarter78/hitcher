@@ -1,8 +1,15 @@
-console.log('app running');
-
+$(document).ready(function(){
+  console.log('app running');
+  $('#home-form input').on('click', function(e){
+    console.log('clicked');
+    window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
+  });
+  $('#logged-in-nav').hide();
+  $('#logged-out-nav').hide();
+  hitcher.renderNav();
+});
 
 var hitcher = {};
-
 
 hitcher.createUser = function(e){
   e.preventDefault();
@@ -45,7 +52,7 @@ hitcher.renderTrips = function(users){
   // pass data into the template
   var compiledHtml = tripTemplate({users: users});
   // append the rendered html to the page
-  $tripList.append(compliledHtml);
+  $tripList.append(compiledHtml);
 }
 
 hitcher.showTrip = function(trips){
@@ -58,8 +65,20 @@ hitcher.showTrip = function(trips){
   $tripShow.append(compiledHtml);
 }
 
-$('#home-form input').on('click', function(e){
-  console.log('clicked');
-  var userId = 'testId';
-  window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
-});
+hitcher.renderNav = function(){
+    $.get('/checkuser', function(user){
+      console.log(user);
+      if (user === "") {
+        console.log('no user');
+        //show logged out version of nav
+        $('#logged-in-nav').hide();
+        $('#logged-out-nav').show();
+      }
+      else {
+        console.log('user present');
+        //show logged in version of nav
+        $('#logged-out-nav').hide();
+        $('#logged-in-nav').show();
+      }
+    });
+}
