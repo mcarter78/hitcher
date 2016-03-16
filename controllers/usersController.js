@@ -49,10 +49,28 @@ var usersController = {
 	},
 	indexUsers: function(req, res){
       console.log("indexing");
-      User.find({}, function(err, users){
-      console.log(users);
-      if (err) res.status(500).send();
-      res.render('./partials/trips/index', { trips: JSON.stringify(users) });
+			var sendUsers = [];
+			User.find({}, function(err, users){
+	  		var id = req.session.userId;
+	  		User.findById(id, function(err, user){
+	    		for(var i = 0; i < users.length; i++){
+							if ((users[i].trips[0] === undefined) || (user.trips[0] === undefined)) {
+								continue;
+							}
+							else if (users[i] === user){
+								console.log('USER MATCH', user[i]);
+								continue;
+							}
+		      		else if((users[i].trips[0].fromLocation === user.trips[0].fromLocation)&&
+								(users[i].trips[0].toLocation === user.trips[0].toLocation)){
+									// console.log("WE HAVE A MATCH:", users[i]);
+		        			sendUsers.push(users[i]);
+		      		}
+	    		}
+					// console.log('SENDUSERS:', sendUsers);
+	  			res.render('./partials/trips/index', { trips: JSON.stringify(sendUsers) });
+	  		});
+
     });
   }
 };
