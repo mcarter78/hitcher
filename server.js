@@ -72,6 +72,8 @@ app.get('/trips/:id', tripsController.showTrip);
 app.get('/checkuser', homeController.nav);
 app.get('/help', homeController.help);
 app.get('/contact', homeController.contact);
+//api routes
+app.get('/api/trips', tripsController.tripsApi);
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');

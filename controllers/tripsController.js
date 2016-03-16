@@ -50,6 +50,12 @@ var tripsController = {
     Trip.findById(id, function(err, trip){
       res.render('./partials/trips/show', { trip: JSON.stringify(trip) });
     });
+  },
+  tripsApi: function(req, res) {
+    Trip.find({}, function(err, trips){
+      if (err) res.status(500).send();
+      res.status(200).send(JSON.stringify(trips));
+    });
   }
 };
 
