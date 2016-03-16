@@ -11,7 +11,6 @@ var tripsController = {
       res.render('./partials/trips/new');
       }
 		});
-
   },
   createTrip: function(req, res){
     req.currentUser(function(err, user){
