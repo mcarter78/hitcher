@@ -42,18 +42,18 @@ hitcher.renderTrips = function(users){
   // create template
   var tripTemplate = Handlebars.compile($("#trip-template").html());
   // pass data into the template
-  var compliledHtml = tripTemplate({users: users});
+  var compiledHtml = tripTemplate({users: users});
   // append the rendered html to the page
   $tripList.append(compliledHtml);
 }
 
-hitcher.showTrip = function(users){
-  console.log(users);
+hitcher.showTrip = function(trips){
+  console.log(trips);
   var $tripShow = $("#trip-show");
   $tripShow.html("");
   var tripShow = Handlebars.compile($("#show-trip").html());
-  var compliledHtml = tripShow({users: users});
-  $tripShow.append(compliledHtml);
+  var compiledHtml = tripShow({trips: trips});
+  $tripShow.append(compiledHtml);
 }
 
 $('#home-form input').on('click', function(e){

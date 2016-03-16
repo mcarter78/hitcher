@@ -46,16 +46,15 @@ var tripsController = {
       }
     });
   },
-    showTrip: function( req, res ) {
+  showTrip: function( req, res ) {
     // var id = req.params.id;
     var id = req.params.id;
-    console.log(id);
+    console.log("it works!",id);
     Trip.findById(id, function(err, trip){
-      res.status(201).send(JSON.stringify(trip));
+      res.render('./partials/trips/show', {trip});
     });
       // console.log("trips here", user);
     // res.status(201).send(JSON.stringify(trip));
-    res.render('./partials/trips/show');
   }
 };
 
