@@ -51,10 +51,10 @@ var tripsController = {
     var id = req.params.id;
     console.log("it works!",id);
     Trip.findById(id, function(err, trip){
-      res.render('./partials/trips/show', {trip});
+      res.render('./partials/trips/show', { trip: JSON.stringify(trip) });
     });
-      // console.log("trips here", user);
     // res.status(201).send(JSON.stringify(trip));
+    // console.log("trips here", user);
   }
 };
 

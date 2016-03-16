@@ -1,24 +1,15 @@
 <div class= "page-content">
 	<h1>Current Trip</h1>
-	{{!-- {{trip}} --}}
-	<div id = "trip-show"></div>
+	<div id="trip-show"></div>
 	<br>
-	<h3>Rider ID: {{trip.riderId}} </h3>
-	<h3>Driver ID: {{trip.driverId}}</h3>
-	<h3>Trip From: {{trip.toLocation}}</h3>
-	<h3>Trip To: {{trip.fromLocation}}</h3>
-
-	<script id = "show-trip" type="text/x-handlebars-template">
-			\{{#each trips}}
-			<div id="\{{_id}}" class="trip trip-card">
-				<p class="trip-attribute">\{{trips.fromLocation}}</p>
-				<p class="trip-attribute">\{{trips.toLocation}}</p>
+	<script id="show-trip" type="text/x-handlebars-template">
+			<div id="\{{trip._id}}" class="trip trip-card">
+				<p class="trip-attribute">DRIVER ID: \{{trip.driverId}}</p>
+				<p class="trip-attribute">RIDER ID: \{{trip.riderId}}</p>
+				<p class="trip-attribute">FROM: \{{trip.fromLocation}}</p>
+				<p class="trip-attribute">TO: \{{trip.toLocation}}</p>
 			</div>
-		\{{/each}}
-		</script>
+	</script>
 		<button onsubmit="hitcher.endtrip">We're Here</button>	 
 </div>
-<script>hitcher.showTrip({{{trips}}})</script>
-{{!-- 				<p class="trip-attribute">\{{name}}</p>
-				<img src="\{{imageUrl}}">
-				<p class="trip-attribute">\{{thumbs}}</p> --}}
+<script>hitcher.showTrip({{{trip}}})</script>

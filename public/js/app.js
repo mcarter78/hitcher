@@ -48,11 +48,12 @@ hitcher.renderTrips = function(users){
 }
 
 hitcher.showTrip = function(trips){
-  console.log(trips);
+  console.log("hello!hello1");
   var $tripShow = $("#trip-show");
   $tripShow.html("");
   var tripShow = Handlebars.compile($("#show-trip").html());
-  var compiledHtml = tripShow({trips: trips});
+  var compiledHtml = tripShow({trip: trips});
+  console.log(compiledHtml);
   $tripShow.append(compiledHtml);
 }
 
