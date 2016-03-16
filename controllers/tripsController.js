@@ -13,7 +13,6 @@ var tripsController = {
 		});
 
   },
-
   createTrip: function(req, res){
     req.currentUser(function(err, user){
 			console.log('Current User:', user);
@@ -39,14 +38,18 @@ var tripsController = {
             user.trips.push(trip);
             console.log(user);
             user.save();
-
           });
-
     			res.status(201).send(JSON.stringify(trip));
     		});
       }
     });
-
+  },
+  showTrip: function( req, res ) {
+    var id = req.params.id;
+    console.log("it works!",id);
+    Trip.findById(id, function(err, trip){
+      res.render('./partials/trips/show', { trip: JSON.stringify(trip) });
+    });
   }
 };
 
