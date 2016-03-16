@@ -39,12 +39,14 @@ var tripsController = {
             user.trips.push(trip);
             console.log(user);
             user.save();
+
           });
 
     			res.status(201).send(JSON.stringify(trip));
     		});
       }
     });
+
   }
 };
 

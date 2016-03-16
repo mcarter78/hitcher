@@ -30,7 +30,8 @@ hitcher.createTrip = function(e){
   console.log(trip);
   $.post('/trips', trip)
     .done(function(res){
-      console.log("trip created", res);
+      console.log("trip created");
+      window.location.replace('http://localhost:3000/trips'); // TODO:  change URL when deploying
     });
 }
 
