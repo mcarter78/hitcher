@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function(){
   console.log('app running');
   $('#home-form input').on('click', function(e){
