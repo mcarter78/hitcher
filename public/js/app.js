@@ -19,7 +19,7 @@ hitcher.createUser = function(e){
     	console.log("user created", res);
       window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
     });
-}
+};
 
 hitcher.login = function(e){
   e.preventDefault();
@@ -29,7 +29,7 @@ hitcher.login = function(e){
       console.log("user logged in", res);
       window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
     });
-}
+};
 
 hitcher.createTrip = function(e){
   e.preventDefault();
@@ -40,7 +40,7 @@ hitcher.createTrip = function(e){
       console.log("trip created");
       window.location.replace('http://localhost:3000/trips'); // TODO:  change URL when deploying
     });
-}
+};
 
 hitcher.renderTrips = function(users){
   console.log(users);
@@ -53,7 +53,7 @@ hitcher.renderTrips = function(users){
   var compiledHtml = tripTemplate({users: users});
   // append the rendered html to the page
   $tripList.append(compiledHtml);
-}
+};
 
 hitcher.showTrip = function(trips){
   var $tripShow = $("#trip-show");
@@ -64,16 +64,27 @@ hitcher.showTrip = function(trips){
   $tripShow.append(compiledHtml);
 };
 
+hitcher.deleteTrip = function(){
+  var tripId = $(".trip.trip-card").attr("id");
+  $.ajax({
+    method: 'DELETE',
+    url: "/trips/" + tripId,
+    success: function () {
+     window.location.replace('http://localhost:3000/trips/new'); //TODO: change URL when deploying
+    }
+   });
+};
+
 hitcher.updateTrip = function(e){
   e.preventDefault();
   var trip = $(e.target).serialize();
-  var tripId = $(".trip.trip-card").attr("id"); 
+  var tripId = $(".trip.trip-card").attr("id");
   $.ajax({
     method: 'PUT',
     url: "/trips/" + tripId,
     data: trip,
     success: function (data) {
-     console.log(data); 
+     console.log(data);
      window.location.replace('http://localhost:3000/trips/' + tripId); // TODO:  change URL when deploying
     }
   });
@@ -81,14 +92,14 @@ hitcher.updateTrip = function(e){
 };
 
 // hitcher.deleteTrip = function(e){
-//   var id = $(e.target).parent(".trip").attr("id"); 
+//   var id = $(e.target).parent(".trip").attr("id");
 //   var ajaxOption = {
 //     url: '/trips/' + id,
 //     type: 'DELETE',
 //     success: function(result) {
 //       // clear it from the page upon successful delete
-//       $("#" + id).remove(); 
-//     }  
+//       $("#" + id).remove();
+//     }
 //   };
 //   // execute ajax
 //   $.ajax(ajaxOption);
