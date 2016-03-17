@@ -47,31 +47,39 @@ var usersController = {
 		});
 		res.redirect('/');
 	},
+	//render riders
 	indexUsers: function(req, res){
       console.log("indexing");
-			var sendUsers = [];
-			User.find({}, function(err, users){
-	  		var id = req.session.userId;
-	  		User.findById(id, function(err, user){
-	    		for(var i = 0; i < users.length; i++){
-							if ((users[i].trips[0] === undefined) || (user.trips[0] === undefined)) {
-								continue;
-							}
-							else if (users[i] === user){
-								console.log('USER MATCH', user[i]);
-								continue;
-							}
-		      		else if((users[i].trips[0].fromLocation === user.trips[0].fromLocation)&&
-								(users[i].trips[0].toLocation === user.trips[0].toLocation)){
-									// console.log("WE HAVE A MATCH:", users[i]);
-		        			sendUsers.push(users[i]);
-		      		}
-	    		}
-					// console.log('SENDUSERS:', sendUsers);
-	  			res.render('./partials/trips/index', { trips: JSON.stringify(sendUsers) });
-	  		});
-
-    });
+	    //Find all users
+	    User.find({}, function(err,users){
+      //Finds logged in user
+      var id = req.session.userId;
+      var sendUsers = [];
+				User.findById(id, function(err, user){
+					//PASTING
+					for(var i = 0; i < users.length; i++){
+						console.log(users[i]._id);
+						console.log(id);
+				    if ((users[i].trips[0] === undefined) || (user.trips[0] === undefined)) {
+				        continue;
+				    }
+				    else if (users[i]._id == id){
+				        console.log('USER MATCH', user[i]);
+				        continue;
+				    }
+				    else if (users[i].trips[0].riderId === undefined){
+					    	continue;
+				    }
+				    else if((users[i].trips[0].fromLocation === user.trips[0].fromLocation)&&
+				        (users[i].trips[0].toLocation === user.trips[0].toLocation)){
+				            // console.log("WE HAVE A MATCH:", users[i]);
+				    sendUsers.push(users[i]);
+				    }
+					}
+				//ends pasting
+		  			res.render('./partials/trips/index', { loggedInUser: JSON.stringify(user), allUsers: JSON.stringify(sendUsers)});
+		    });
+	    }); /*Find all users ends here */
   }
 };
 

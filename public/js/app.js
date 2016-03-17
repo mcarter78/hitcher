@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function(){
   console.log('app running');
   $('#home-form input').on('click', function(e){
@@ -42,26 +43,50 @@ hitcher.createTrip = function(e){
     });
 };
 
-hitcher.renderTrips = function(users){
-  console.log(users);
+hitcher.renderTrips = function(user){
+  console.log(user);
   var $tripList = $("#trip-list");
   // clear list
   $tripList.html("");
   // create template
   var tripTemplate = Handlebars.compile($("#trip-template").html());
   // pass data into the template
-  var compiledHtml = tripTemplate({users: users});
+  var compiledHtml = tripTemplate({users: user, trips: user.trips});
   // append the rendered html to the page
   $tripList.append(compiledHtml);
+};
+
+hitcher.loggedIn = function(currentUser){
+  console.log(currentUser);
+  var $currentUser = $("#current-user");
+  $currentUser.html("");
+  var userTemplate = Handlebars.compile($("#user-template").html());
+  var compiledHtml = userTemplate({profile: currentUser});
+  $currentUser.append(compiledHtml);
 };
 
 hitcher.showTrip = function(trips){
   var $tripShow = $("#trip-show");
   $tripShow.html("");
   var tripShow = Handlebars.compile($("#show-trip").html());
-  var compiledHtml = tripShow({trip: trips});
+  var compiledHtml = tripShow({trips: trips});
   console.log(compiledHtml);
   $tripShow.append(compiledHtml);
+};
+
+hitcher.updateTrip = function(e){
+  e.preventDefault();
+  var trip = $(e.target).serialize();
+  var tripId = $(".trip.trip-card").attr("id");
+  $.ajax({
+    method: 'PUT',
+    url: "/trips/" + tripId,
+    data: trip,
+    success: function (data) {
+      console.log(data);
+      window.location.replace('http://localhost:3000/trips/' + tripId); // TODO:  change URL when deploying
+    }
+  });
 };
 
 hitcher.deleteTrip = function(){
@@ -74,36 +99,6 @@ hitcher.deleteTrip = function(){
     }
    });
 };
-
-hitcher.updateTrip = function(e){
-  e.preventDefault();
-  var trip = $(e.target).serialize();
-  var tripId = $(".trip.trip-card").attr("id");
-  $.ajax({
-    method: 'PUT',
-    url: "/trips/" + tripId,
-    data: trip,
-    success: function (data) {
-     console.log(data);
-     window.location.replace('http://localhost:3000/trips/' + tripId); // TODO:  change URL when deploying
-    }
-  });
-
-};
-
-// hitcher.deleteTrip = function(e){
-//   var id = $(e.target).parent(".trip").attr("id");
-//   var ajaxOption = {
-//     url: '/trips/' + id,
-//     type: 'DELETE',
-//     success: function(result) {
-//       // clear it from the page upon successful delete
-//       $("#" + id).remove();
-//     }
-//   };
-//   // execute ajax
-//   $.ajax(ajaxOption);
-// }
 
 hitcher.renderNav = function(){
     $.get('/checkuser', function(user){
@@ -121,4 +116,4 @@ hitcher.renderNav = function(){
         $('#logged-in-nav').show();
       }
     });
-}
+};
