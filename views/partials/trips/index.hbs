@@ -1,5 +1,4 @@
 <div class="page-content">
-	<h3>There are (x)number of riders that need a ride from fromLocation to toLocation.</h3>
 	<div id="current-user"></div>
 	<div id="trip-list"></div>
 		<!-- client-side trip list -->
@@ -16,8 +15,7 @@
 
 		<script id="trip-template" type="text/x-handlebars-template">
 		<!-- Shows Logged in user info -->
-				<p>\{{users.length}}<p>
-				<h1>Trip record </h1>
+		<h3>There are \{{users.length}} riders that need a ride: </h3>
 			\{{#each users}}
 				<div id="\{{_id}}" class="trip trip-card">
 					<p class="trip-attribute">Name: \{{name}}</p>
@@ -40,5 +38,5 @@
 	hitcher.renderTrips(allUsers);
 	var currentUser = {{{loggedInUser}}};
 	hitcher.loggedIn(currentUser);
-	window.data = allUsers;
+	// window.data = allUsers;
 </script>
