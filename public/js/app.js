@@ -64,6 +64,22 @@ hitcher.showTrip = function(trips){
   $tripShow.append(compiledHtml);
 };
 
+hitcher.tripNav = function() {
+  if (driver id === undefined || rider id === undefined) { 
+    $('#matched-nav').hide();
+    $('#not-matched-nav').show();
+  } 
+  else {
+    $('#not-matched-nav').hide();
+    $('#matched-nav').show();
+  };
+}
+
+// hitcher.completeTrip = function(){
+//   e.preventDefault();
+// set current trip to inactive 
+// };
+
 hitcher.deleteTrip = function(){
   var tripId = $(".trip.trip-card").attr("id");
   $.ajax({
@@ -73,10 +89,7 @@ hitcher.deleteTrip = function(){
     }
   });
 };
-// hitcher.completeTrip = function(){
-//   e.preventDefault();
-//   window.location.replace('http://localhost:3000/trips/here'); 
-// };
+
 hitcher.updateTrip = function(e){
   e.preventDefault();
   var trip = $(e.target).serialize();
@@ -93,19 +106,20 @@ hitcher.updateTrip = function(e){
 };
 
 hitcher.renderNav = function(){
-    $.get('/checkuser', function(user){
-      console.log(user);
-      if (user === "") {
-        console.log('no user');
-        //show logged out version of nav
-        $('#logged-in-nav').hide();
-        $('#logged-out-nav').show();
-      }
-      else {
-        console.log('user present');
-        //show logged in version of nav
-        $('#logged-out-nav').hide();
-        $('#logged-in-nav').show();
-      }
-    });
-}
+  $.get('/checkuser', function(user){
+    console.log(user);
+    if (user === "") {
+      console.log('no user');
+      //show logged out version of nav
+      $('#logged-in-nav').hide();
+      $('#logged-out-nav').show();
+    }
+    else {
+      console.log('user present');
+      //show logged in version of nav
+      $('#logged-out-nav').hide();
+      $('#logged-in-nav').show();
+    }
+  });
+}; 
+

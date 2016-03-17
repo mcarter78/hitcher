@@ -12,67 +12,77 @@
 	</script>
 	<hr> 
 	<h3>Update Trip</h3>
-	<!-- <button onsubmit="hitcher.completeTrip()">We're Here</button> -->
-	<a href="/arrived"><button>We're here!</button></a>
-	<a href="/trips/new"><button class="deleteButton" onclick="hitcher.deleteTrip()">Delete</button></a>
-	<form onsubmit="hitcher.updateTrip(event)">
-	  <select type="number" name="fromLocation" placeholder="From Zipcode" required>
-	    <option value="94133">94133</option>
-	    <option value="94129">94129</option>
-	    <option value="94123">94123</option>
-	    <option value="94111">94111</option>
-	    <option value="94121">94121</option>
-	    <option value="94118">94118</option>
-	    <option value="94115">94115</option>
-	    <option value="94109">94109</option>
-	    <option value="94108">94108</option>
-	    <option value="94104">94104</option>
-	    <option value="94105">94105</option>
-	    <option value="94131">94131</option>
-	    <option value="94132">94132</option>
-	    <option value="94122">94122</option>
-	    <option value="94117">94117</option>
-	    <option value="94102">94102</option>
-	    <option value="94103">94103</option>
-	    <option value="94158">94158</option>
-	    <option value="94116">94116</option>
-	    <option value="94114">94114</option>
-	    <option value="94110">94110</option>
-	    <option value="94107">94107</option>
-	    <option value="94127">94127</option>
-	    <option value="94124">94124</option>
-	    <option value="94112">94112</option>
-	    <option value="94134">94134</option>
-	  </select>
-	  <select type="number" name="toLocation" placeholder="To Zipcode" required>
-	    <option value="94133">94133</option>
-	    <option value="94129">94129</option>
-	    <option value="94123">94123</option>
-	    <option value="94111">94111</option>
-	    <option value="94121">94121</option>
-	    <option value="94118">94118</option>
-	    <option value="94115">94115</option>
-	    <option value="94109">94109</option>
-	    <option value="94108">94108</option>
-	    <option value="94104">94104</option>
-	    <option value="94105">94105</option>
-	    <option value="94131">94131</option>
-	    <option value="94132">94132</option>
-	    <option value="94122">94122</option>
-	    <option value="94117">94117</option>
-	    <option value="94102">94102</option>
-	    <option value="94103">94103</option>
-	    <option value="94158">94158</option>
-	    <option value="94116">94116</option>
-	    <option value="94114">94114</option>
-	    <option value="94110">94110</option>
-	    <option value="94107">94107</option>
-	    <option value="94127">94127</option>
-	    <option value="94124">94124</option>
-	    <option value="94112">94112</option>
-	    <option value="94134">94134</option>
-	  </select>
-	  <input type="submit">
-	</form>
+
+	<ul class="trip-nav" id="not-matched-nav">
+	    <li>
+			<a href="/trips/new"><button class="btn delete-btn" onclick="hitcher.deleteTrip()">Delete</button></a>
+	    </li>
+	    <li>
+			<form onsubmit="hitcher.updateTrip(event)">
+			  <select type="number" name="fromLocation" placeholder="From Zipcode" required>
+			    <option value="94133">94133</option>
+			    <option value="94129">94129</option>
+			    <option value="94123">94123</option>
+			    <option value="94111">94111</option>
+			    <option value="94121">94121</option>
+			    <option value="94118">94118</option>
+			    <option value="94115">94115</option>
+			    <option value="94109">94109</option>
+			    <option value="94108">94108</option>
+			    <option value="94104">94104</option>
+			    <option value="94105">94105</option>
+			    <option value="94131">94131</option>
+			    <option value="94132">94132</option>
+			    <option value="94122">94122</option>
+			    <option value="94117">94117</option>
+			    <option value="94102">94102</option>
+			    <option value="94103">94103</option>
+			    <option value="94158">94158</option>
+			    <option value="94116">94116</option>
+			    <option value="94114">94114</option>
+			    <option value="94110">94110</option>
+			    <option value="94107">94107</option>
+			    <option value="94127">94127</option>
+			    <option value="94124">94124</option>
+			    <option value="94112">94112</option>
+			    <option value="94134">94134</option>
+			  </select>
+			  <select type="number" name="toLocation" placeholder="To Zipcode" required>
+			    <option value="94133">94133</option>
+			    <option value="94129">94129</option>
+			    <option value="94123">94123</option>
+			    <option value="94111">94111</option>
+			    <option value="94121">94121</option>
+			    <option value="94118">94118</option>
+			    <option value="94115">94115</option>
+			    <option value="94109">94109</option>
+			    <option value="94108">94108</option>
+			    <option value="94104">94104</option>
+			    <option value="94105">94105</option>
+			    <option value="94131">94131</option>
+			    <option value="94132">94132</option>
+			    <option value="94122">94122</option>
+			    <option value="94117">94117</option>
+			    <option value="94102">94102</option>
+			    <option value="94103">94103</option>
+			    <option value="94158">94158</option>
+			    <option value="94116">94116</option>
+			    <option value="94114">94114</option>
+			    <option value="94110">94110</option>
+			    <option value="94107">94107</option>
+			    <option value="94127">94127</option>
+			    <option value="94124">94124</option>
+			    <option value="94112">94112</option>
+			    <option value="94134">94134</option>
+			  </select>
+			  <input class="btn" type="submit" value="Update">
+			</form>
+	    </li>
+	</ul>
+	<ul class="trip-nav" id="matched-nav">
+	    <li>
+	      	<a href="/arrived"><button class="btn here-btn">We're here!</button></a>
+	    </li>
+	</ul>
 </div>
 <script>hitcher.showTrip({{{trip}}})</script>
