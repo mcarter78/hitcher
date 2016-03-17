@@ -5,14 +5,13 @@
 		<!-- TODO: we are going to filter these by relevance later -->
 		<script id="trip-template" type="text/x-handlebars-template">
 		<!-- Shows Logged in user info -->
-			<p>\{{trips.length}}<p>
+				<h3>Welcome, \{{driver.name}} </h3>
+					<img class="avatar-image" src="\{{driver.imageUrl}}">
+					<p class="trip-attribute">Email: \{{driver.email}}</p>
+				<p>\{{trips.length}}<p>
+				<h1>Trip record </h1>
 			\{{#each trips}}
 				<div id="\{{_id}}" class="trip trip-card">
-				<p>Driver: <p/>
-					<img class="avatar-image" src="\{{driver.imageUrl}}">
-					<p class="trip-attribute">Name: \{{name}}</p>
-					<p class="trip-attribute">Email: \{{email}}</p>
-					<p>Riders: </p>
 					<p class="trip-attribute">\{{fromLocation}}</p>
 					<p class="trip-attribute">\{{toLocation}}</p>
 					<p class="trip-attribute">\{{_id}}</p>
