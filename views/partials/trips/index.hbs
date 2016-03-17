@@ -4,7 +4,7 @@
 		<!-- client-side trip list -->
 		<!-- TODO: we are going to filter these by relevance later -->
 </div>
-		
+
 		<script id="user-template" type="text/x-handlebars-template">
 			<div class="trip trip-card">
 				<h3>Welcome, \{{profile.name}} </h3>
@@ -28,7 +28,7 @@
 					<p class="trip-attribute">\{{trips.[0].toLocation}}</p>
 					<p class="trip-attribute">User ID: \{{_id}}</p>
 					<p class="trip-attribute">\{{thumbs}}</p>
-					<a href="/trips/\{{_id}}" class="btn">Pick up \{{name}}</a>
+					<a href="/trips/\{{trips.[0]._id}}" id="\{{trips.[0]._id}}" class="btn showBtn">Pick up \{{name}}</a>
 				</div>
 			\{{/each}}
 		<!-- logged in userInfo ends here -->

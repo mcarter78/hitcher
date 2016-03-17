@@ -64,20 +64,20 @@ hitcher.loggedIn = function(currentUser){
   $currentUser.append(compiledHtml);
 };
 
-hitcher.showTrip = function(trips){
+hitcher.showTrip = function(trips, rider, driver){
   var $tripShow = $("#trip-show");
   $tripShow.html("");
   var tripShow = Handlebars.compile($("#show-trip").html());
-  var compiledHtml = tripShow({trips: trips});
+  var compiledHtml = tripShow({trips: trips, rider: rider, driver: driver});
   console.log(compiledHtml);
   $tripShow.append(compiledHtml);
 };
 
 // hitcher.tripNav = function() {
-//   if (driver id === undefined || rider id === undefined) { 
+//   if (driver id === undefined || rider id === undefined) {
 //     $('#matched-nav').hide();
 //     $('#not-matched-nav').show();
-//   } 
+//   }
 //   else {
 //     $('#not-matched-nav').hide();
 //     $('#matched-nav').show();
@@ -86,16 +86,14 @@ hitcher.showTrip = function(trips){
 
 // hitcher.completeTrip = function(){
 //   e.preventDefault();
-// set current trip to inactive 
+// set current trip to inactive
 // };
 
 hitcher.deleteTrip = function(){
   var tripId = $(".trip.trip-card").attr("id");
   $.ajax({
     method: 'DELETE',
-    url: "/trips/" + tripId,
-    success: function () {
-    }
+    url: "/trips/" + tripId
   });
 };
 
@@ -130,4 +128,4 @@ hitcher.renderNav = function(){
       $('#logged-in-nav').show();
     }
   });
-}; 
+};
