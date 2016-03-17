@@ -1,12 +1,12 @@
 <form onsubmit="hitcher.createTrip(event)">
   <h2>I'm A:</h2>
   <label for="driver">Driver</label>
-  <input type="radio" name="userType" id="driver" value="Driver" required>
+  <input type="radio" name="userType" id="driver" value="Driver" checked="checked"required>
   <label for="driver">Rider</label>
   <input type="radio" name="userType" id="rider" value="Rider">
   <br>
   <h2>Traveling:</h2>
-  <input type="number" name="fromLocation" placeholder="From Zipcode" required>
+  <input type="number" name="fromLocation" placeholder="From Zipcode" required autofocus>
   <input type="number" name="toLocation" placeholder="To Zipcode" required>
   <input type="submit">
 </form>
