@@ -68,6 +68,8 @@ app.get('/trips/new', tripsController.newTrip);
 app.post('/trips', tripsController.createTrip);
 app.get('/trips', usersController.indexUsers);
 app.get('/trips/:id', tripsController.showTrip);
+app.put('/trips/:id', tripsController.updateTrip);
+// app.delete('/trips/:id', tripsController.destroyTrip);
 //nav routes
 app.get('/checkuser', homeController.nav);
 app.get('/help', homeController.help);

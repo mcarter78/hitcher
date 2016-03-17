@@ -50,7 +50,25 @@ var tripsController = {
     Trip.findById(id, function(err, trip){
       res.render('./partials/trips/show', { trip: JSON.stringify(trip) });
     });
-  }
+  }, 
+  updateTrip: function(req, res) {
+    var id = req.params.id;
+    Trip.findById(id, function(err, trip){
+      if (err) return console.log(err);
+      trip.fromLocation = parseInt(req.body.fromLocation); 
+      trip.toLocation = parseInt(req.body.toLocation); 
+      trip.save(function(err, updatedTrip){
+      res.send(); 
+      }); 
+    });
+  },
+  // destroyTrip: function(req, res) {
+  //   Trip.remove({_id: req.params.id}, function(err, trip) {
+  //     err ? 
+  //     res.status(500).send() : 
+  //     res.status(204).send(JSON.stringify(trip));
+  //   });
+  // }
 };
 
 module.exports = tripsController;
