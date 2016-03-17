@@ -11,7 +11,6 @@ var tripsController = {
       res.render('./partials/trips/new');
       }
 		});
-
   },
   createTrip: function(req, res){
     req.currentUser(function(err, user){
@@ -55,6 +54,17 @@ var tripsController = {
     Trip.find({}, function(err, trips){
       if (err) res.status(500).send();
       res.status(200).send(JSON.stringify(trips));
+    });
+  },
+  updateTrip: function(req, res) {
+    var id = req.params.id;
+    Trip.findById(id, function(err, trip){
+      if (err) return console.log(err);
+      trip.fromLocation = parseInt(req.body.fromLocation);
+      trip.toLocation = parseInt(req.body.toLocation);
+      trip.save(function(err, updatedTrip){
+      res.send();
+      });
     });
   }
 };

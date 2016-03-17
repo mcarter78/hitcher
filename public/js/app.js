@@ -56,14 +56,43 @@ hitcher.renderTrips = function(users){
 }
 
 hitcher.showTrip = function(trips){
-  console.log("hello!hello1");
   var $tripShow = $("#trip-show");
   $tripShow.html("");
   var tripShow = Handlebars.compile($("#show-trip").html());
   var compiledHtml = tripShow({trip: trips});
   console.log(compiledHtml);
   $tripShow.append(compiledHtml);
-}
+};
+
+hitcher.updateTrip = function(e){
+  e.preventDefault();
+  var trip = $(e.target).serialize();
+  var tripId = $(".trip.trip-card").attr("id"); 
+  $.ajax({
+    method: 'PUT',
+    url: "/trips/" + tripId,
+    data: trip,
+    success: function (data) {
+     console.log(data); 
+     window.location.replace('http://localhost:3000/trips/' + tripId); // TODO:  change URL when deploying
+    }
+  });
+
+};
+
+// hitcher.deleteTrip = function(e){
+//   var id = $(e.target).parent(".trip").attr("id"); 
+//   var ajaxOption = {
+//     url: '/trips/' + id,
+//     type: 'DELETE',
+//     success: function(result) {
+//       // clear it from the page upon successful delete
+//       $("#" + id).remove(); 
+//     }  
+//   };
+//   // execute ajax
+//   $.ajax(ajaxOption);
+// }
 
 hitcher.renderNav = function(){
     $.get('/checkuser', function(user){

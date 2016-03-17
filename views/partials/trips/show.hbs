@@ -10,6 +10,16 @@
 				<p class="trip-attribute">TO: \{{trip.toLocation}}</p>
 			</div>
 	</script>
-		<button onsubmit="hitcher.endtrip">We're Here</button>	 
+
+		<button onsubmit="hitcher.endtrip">We're Here</button>
+
+		<form onsubmit="hitcher.updateTrip(event)">
+		  <input type="number" name="fromLocation" placeholder="From Zipcode" required>
+		  <input type="number" name="toLocation" placeholder="To Zipcode" required>
+		  <input type="submit">
+		</form>		
+<button onsubmit="hitcher.deleteTrip">Cancel Trip</button>	  
 </div>
 <script>hitcher.showTrip({{{trip}}})</script>
+
+
