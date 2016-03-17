@@ -1,20 +1,42 @@
 <div class="page-content">
-	<h3>There are NUMBER riders that need a ride from fromLocation to toLocation.</h3>
+	<div id="current-user"></div>
 	<div id="trip-list"></div>
 		<!-- client-side trip list -->
 		<!-- TODO: we are going to filter these by relevance later -->
-		<script id="trip-template" type="text/x-handlebars-template">
-			\{{#each users}}
-				<div id="\{{_id}}" class="trip trip-card">
-					<img class="avatar-image" src="\{{imageUrl}}">
-					<p class="trip-attribute">\{{name}}</p>
-					<p class="trip-attribute">\{{trips.[0].fromLocation}}</p>
-					<p class="trip-attribute">\{{trips.[0].toLocation}}</p>
-					<p class="trip-attribute">\{{thumbs}}</p>
-					<button class="btn">Pick up \{{name}}</button>
-				</div>
-			\{{/each}}
+</div>
+		
+		<script id="user-template" type="text/x-handlebars-template">
+			<div class="trip trip-card">
+				<h3>Welcome, \{{profile.name}} </h3>
+				<img class="avatar-image" src="\{{profile.imageUrl}}">
+				<p class="trip-attribute">Email: \{{profile.email}}</p>
+			</div>
 		</script>
 
-</div>
-<script>hitcher.renderTrips({{{trips}}})</script>
+		<script id="trip-template" type="text/x-handlebars-template">
+		<!-- Shows Logged in user info -->
+		<h3>There are \{{users.length}} riders that need a ride: </h3>
+			\{{#each users}}
+				<div id="\{{_id}}" class="trip trip-card">
+					<p class="trip-attribute">Name: \{{name}}</p>
+					<p class="trip-attribute">Email: \{{email}}</p>
+					<p class="trip-attribute">Cell: \{{mobileNumber}}</p>
+					<p class="trip-attribute">FROM: \{{trips.[0].fromLocation}}</p>
+					<p class="trip-attribute">TO: \{{trips.[0].fromLocation}}</p>
+					<p class="trip-attribute">RiderID: \{{trips.[0].riderId}}</p>
+					<p class="trip-attribute">DriverID: \{{trips.[0].driverId}}</p>
+					<p class="trip-attribute">\{{trips.[0].toLocation}}</p>
+					<p class="trip-attribute">User ID: \{{_id}}</p>
+					<p class="trip-attribute">\{{thumbs}}</p>
+					<a href="/trips/\{{_id}}" class="btn">Pick up \{{name}}</a>
+				</div>
+			\{{/each}}
+		<!-- logged in userInfo ends here -->
+		</script>
+<script>
+	var allUsers = {{{allUsers}}};
+	hitcher.renderTrips(allUsers);
+	var currentUser = {{{loggedInUser}}};
+	hitcher.loggedIn(currentUser);
+	// window.data = allUsers;
+</script>

@@ -42,38 +42,47 @@ hitcher.createTrip = function(e){
     });
 };
 
-hitcher.renderTrips = function(users){
-  console.log(users);
+hitcher.renderTrips = function(user){
+  console.log(user);
   var $tripList = $("#trip-list");
   // clear list
   $tripList.html("");
   // create template
   var tripTemplate = Handlebars.compile($("#trip-template").html());
   // pass data into the template
-  var compiledHtml = tripTemplate({users: users});
+  var compiledHtml = tripTemplate({users: user, trips: user.trips});
   // append the rendered html to the page
   $tripList.append(compiledHtml);
+};
+
+hitcher.loggedIn = function(currentUser){
+  console.log(currentUser);
+  var $currentUser = $("#current-user");
+  $currentUser.html("");
+  var userTemplate = Handlebars.compile($("#user-template").html());
+  var compiledHtml = userTemplate({profile: currentUser});
+  $currentUser.append(compiledHtml);
 };
 
 hitcher.showTrip = function(trips){
   var $tripShow = $("#trip-show");
   $tripShow.html("");
   var tripShow = Handlebars.compile($("#show-trip").html());
-  var compiledHtml = tripShow({trip: trips});
+  var compiledHtml = tripShow({trips: trips});
   console.log(compiledHtml);
   $tripShow.append(compiledHtml);
 };
 
-hitcher.tripNav = function() {
-  if (driver id === undefined || rider id === undefined) { 
-    $('#matched-nav').hide();
-    $('#not-matched-nav').show();
-  } 
-  else {
-    $('#not-matched-nav').hide();
-    $('#matched-nav').show();
-  };
-}
+// hitcher.tripNav = function() {
+//   if (driver id === undefined || rider id === undefined) { 
+//     $('#matched-nav').hide();
+//     $('#not-matched-nav').show();
+//   } 
+//   else {
+//     $('#not-matched-nav').hide();
+//     $('#matched-nav').show();
+//   };
+// }
 
 // hitcher.completeTrip = function(){
 //   e.preventDefault();
@@ -99,8 +108,8 @@ hitcher.updateTrip = function(e){
     url: "/trips/" + tripId,
     data: trip,
     success: function (data) {
-     console.log(data);
-     window.location.replace('http://localhost:3000/trips/' + tripId); // TODO:  change URL when deploying
+      console.log(data);
+      window.location.replace('http://localhost:3000/trips/' + tripId); // TODO:  change URL when deploying
     }
   });
 };
@@ -122,4 +131,3 @@ hitcher.renderNav = function(){
     }
   });
 }; 
-
