@@ -3,11 +3,13 @@
 	<div id="trip-show"></div>
 	<br>
 	<script id="show-trip" type="text/x-handlebars-template">
-			<div id="\{{trip._id}}" class="trip trip-card">
-				<p class="trip-attribute">DRIVER ID: \{{trip.driverId}}</p>
-				<p class="trip-attribute">RIDER ID: \{{trip.riderId}}</p>
-				<p class="trip-attribute">FROM: \{{trip.fromLocation}}</p>
-				<p class="trip-attribute">TO: \{{trip.toLocation}}</p>
+			<div id="\{{trips._id}}" class="trip trip-card">
+				<p class="trip-attribute">DRIVER:</p>
+				<span id="driver-info"><img class="avatar-image" src="\{{driver.imageUrl}}">\{{driver.name}}</span>
+				<p class="trip-attribute">RIDER:</p>
+				<span id="rider-info"><img class="avatar-image" src="\{{rider.imageUrl}}">\{{rider.name}}</span>
+				<p class="trip-attribute">FROM: \{{trips.fromLocation}}</p>
+				<p class="trip-attribute">TO: \{{trips.toLocation}}</p>
 			</div>
 	</script>
 
@@ -22,4 +24,4 @@
 		<button class="deleteButton" onclick="hitcher.deleteTrip()">Delete</button>
 
 </div>
-<script>hitcher.showTrip({{{trip}}})</script>
+<script>hitcher.showTrip({{{trip}}}, {{{rider}}}, {{{driver}}})</script>

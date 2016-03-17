@@ -46,8 +46,17 @@ var tripsController = {
   showTrip: function( req, res ) {
     var id = req.params.id;
     console.log("it works!",id);
+    var userId = req.user._id;
     Trip.findById(id, function(err, trip){
-      res.render('./partials/trips/show', { trip: JSON.stringify(trip) });
+      trip.driverId = userId;
+      trip.save(function(err, updatedTrip){
+        User.findById(updatedTrip.riderId, function(err, rider){
+          User.findById(updatedTrip.driverId, function(err, driver){
+            res.render('./partials/trips/show', { trip: JSON.stringify(updatedTrip),
+              rider: JSON.stringify(rider), driver: JSON.stringify(driver) });
+          });
+        });
+      });
     });
   },
   tripsApi: function(req, res) {

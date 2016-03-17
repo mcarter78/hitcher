@@ -64,11 +64,11 @@ hitcher.loggedIn = function(currentUser){
   $currentUser.append(compiledHtml);
 };
 
-hitcher.showTrip = function(trips){
+hitcher.showTrip = function(trips, rider, driver){
   var $tripShow = $("#trip-show");
   $tripShow.html("");
   var tripShow = Handlebars.compile($("#show-trip").html());
-  var compiledHtml = tripShow({trips: trips});
+  var compiledHtml = tripShow({trips: trips, rider: rider, driver: driver});
   console.log(compiledHtml);
   $tripShow.append(compiledHtml);
 };
@@ -94,7 +94,7 @@ hitcher.deleteTrip = function(){
     method: 'DELETE',
     url: "/trips/" + tripId,
     success: function () {
-     window.location.replace('http://localhost:3000/trips/new'); //TODO: change URL when deploying
+    window.location.replace('http://localhost:3000/trips/new'); //TODO: change URL when deploying
     }
    });
 };
