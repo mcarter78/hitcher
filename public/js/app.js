@@ -12,7 +12,7 @@ hitcher.createUser = function(e){
     	console.log("user created", res);
       window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
     });
-}
+};
 
 hitcher.login = function(e){
   e.preventDefault();
@@ -22,7 +22,7 @@ hitcher.login = function(e){
       console.log("user logged in", res);
       window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
     });
-}
+};
 
 hitcher.createTrip = function(e){
   e.preventDefault();
@@ -33,7 +33,7 @@ hitcher.createTrip = function(e){
       console.log("trip created");
       window.location.replace('http://localhost:3000/trips'); // TODO:  change URL when deploying
     });
-}
+};
 
 hitcher.renderTrips = function(users){
   console.log(users);
@@ -46,7 +46,7 @@ hitcher.renderTrips = function(users){
   var compiledHtml = tripTemplate({users: users});
   // append the rendered html to the page
   $tripList.append(compiledHtml);
-}
+};
 
 hitcher.showTrip = function(trips){
   console.log("hello!hello1");
@@ -56,7 +56,18 @@ hitcher.showTrip = function(trips){
   var compiledHtml = tripShow({trip: trips});
   console.log(compiledHtml);
   $tripShow.append(compiledHtml);
-}
+};
+
+hitcher.deleteTrip = function(){
+  var tripId = $(".trip.trip-card").attr("id"); 
+  $.ajax({
+    method: 'DELETE',
+    url: "/trips/" + tripId,
+    success: function () { 
+     window.location.replace('http://localhost:3000/trips/new'); //TODO: change URL when deploying 
+    }
+   });
+};
 
 $('#home-form input').on('click', function(e){
   console.log('clicked');

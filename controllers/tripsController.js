@@ -50,6 +50,14 @@ var tripsController = {
     Trip.findById(id, function(err, trip){
       res.render('./partials/trips/show', { trip: JSON.stringify(trip) });
     });
+  },
+
+  deleteTrip: function( req, res ){
+    var id = req.params.id;
+    console.log(id);
+    Trip.findByIdAndRemove({_id: id}, function(err){
+        if (err) res.status(500).send();
+    });
   }
 };
 

@@ -68,6 +68,7 @@ app.get('/trips/new', tripsController.newTrip);
 app.post('/trips', tripsController.createTrip);
 app.get('/trips', usersController.indexUsers); 
 app.get('/trips/:id', tripsController.showTrip);
+app.delete('/trips/:id', tripsController.deleteTrip);
 
 //connect to database
 mongoose.connect('mongodb://localhost/hitcher');

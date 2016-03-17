@@ -10,6 +10,8 @@
 				<p class="trip-attribute">TO: \{{trip.toLocation}}</p>
 			</div>
 	</script>
-		<button onsubmit="hitcher.endtrip">We're Here</button>	 
+		<button onsubmit="hitcher.endtrip">We're Here</button>	
+		<button class="deleteButton" onclick="hitcher.deleteTrip()">Delete</button>
+ 
 </div>
 <script>hitcher.showTrip({{{trip}}})</script>
