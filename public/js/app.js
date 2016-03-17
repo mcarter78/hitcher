@@ -94,7 +94,7 @@ hitcher.deleteTrip = function(){
     method: 'DELETE',
     url: "/trips/" + tripId,
     success: function () {
-     window.location.replace('http://localhost:3000/trips/new'); //TODO: change URL when deploying
+    window.location.replace('http://localhost:3000/trips/new'); //TODO: change URL when deploying
     }
    });
 };
