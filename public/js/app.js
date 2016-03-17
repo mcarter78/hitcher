@@ -1,9 +1,5 @@
 console.log('app running');
-
-
 var hitcher = {};
-
-
 hitcher.createUser = function(e){
   e.preventDefault();
 	var user = $(e.target).serialize();
@@ -43,10 +39,18 @@ hitcher.renderTrips = function(user){
   // create template
   var tripTemplate = Handlebars.compile($("#trip-template").html());
   // pass data into the template
-  var compiledHtml = tripTemplate({driver: user, trips: user.trips});
+  var compiledHtml = tripTemplate({users: user, trips: user.trips});
   // append the rendered html to the page
-  console.log("grabUserNameById");
   $tripList.append(compiledHtml);
+}
+
+hitcher.loggedIn = function(currentUser){
+  console.log(currentUser);
+  var $currentUser = $("#current-user");
+  $currentUser.html("");
+  var userTemplate = Handlebars.compile($("#user-template").html());
+  var compiledHtml = userTemplate({profile: currentUser});
+  $currentUser.append(compiledHtml);
 }
 
 hitcher.showTrip = function(trips){
@@ -54,7 +58,7 @@ hitcher.showTrip = function(trips){
   var $tripShow = $("#trip-show");
   $tripShow.html("");
   var tripShow = Handlebars.compile($("#show-trip").html());
-  var compiledHtml = tripShow({trip: trips});
+  var compiledHtml = tripShow({trips: trips});
   console.log(compiledHtml);
   $tripShow.append(compiledHtml);
 }
