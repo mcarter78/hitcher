@@ -45,6 +45,7 @@ hitcher.renderTrips = function(user){
   // pass data into the template
   var compiledHtml = tripTemplate({driver: user, trips: user.trips});
   // append the rendered html to the page
+  console.log("grabUserNameById");
   $tripList.append(compiledHtml);
 }
 

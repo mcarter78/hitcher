@@ -64,7 +64,7 @@ var usersController = {
 							}
 		      		else if((users[i].trips[0].fromLocation === user.trips[0].fromLocation)&&
 								(users[i].trips[0].toLocation === user.trips[0].toLocation)){
-									// console.log("WE HAVE A MATCH:", users[i]);
+									console.log("WE HAVE A MATCH:", users[i]);
 		        			sendUsers.push(users[i]);
 		      		}
 	    		}
