@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+      <a class="navbar-brand" href="/">Hitcher</a>
+      <button class = 'navbar-toggle' data-toggle = 'collapse' data-target= '.navHeaderCollapse'>
+              <span class = 'icon-bar'></span>
+              <span class = 'icon-bar'></span>
+              <span class = 'icon-bar'></span>
+          </button>
+        <div class="collapse navbar-collapse navHeaderCollapse">
+              <ul class="nav navbar-nav navbar-right" id="logged-out-nav">
+                  <li><a href="/users/new">Sign Up</a></li>
+                  <li><a href="/login">Login</a></li>
+                  <li><a href="/help">How It Works</a></li>
+                  <li><a href="/contact">Contact</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right" id="logged-in-nav">
+                  <li>{{req.session.id}}</li>
+                  <li><a href="/trips/new">New Commute</a></li>
+                  <li><a href="#">Current Commute</a></li>
+                  <!-- <li><a href="#">My Account</a></li> -->
+                  <li><a href="/help">How It Works</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                  <li><a href="/logout">Logout</a></li>
+              </ul>
+      </div>
+    </div>
+  </nav>
