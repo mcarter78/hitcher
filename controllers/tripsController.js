@@ -66,6 +66,13 @@ var tripsController = {
       res.send();
       });
     });
+  },
+  deleteTrip: function(req, res) {
+    var id = req.params.id;
+    console.log(id);
+    Trip.findByIdAndRemove({_id: id}, function(err){
+        if (err) res.status(500).send();
+    });
   }
 };
 

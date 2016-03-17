@@ -17,9 +17,9 @@
 		  <input type="number" name="fromLocation" placeholder="From Zipcode" required>
 		  <input type="number" name="toLocation" placeholder="To Zipcode" required>
 		  <input type="submit">
-		</form>		
-<button onsubmit="hitcher.deleteTrip">Cancel Trip</button>	  
+		</form>
+
+		<button class="deleteButton" onclick="hitcher.deleteTrip()">Delete</button>
+
 </div>
 <script>hitcher.showTrip({{{trip}}})</script>
-
-
