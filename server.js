@@ -70,7 +70,7 @@ app.get('/trips', usersController.indexUsers);
 app.get('/trips/:id', tripsController.showTrip);
 app.put('/trips/:id', tripsController.updateTrip);
 app.delete('/trips/:id', tripsController.deleteTrip);
-// app.delete('/trips/:id', tripsController.destroyTrip);
+app.get('/arrived', tripsController.completeTrip);
 //nav routes
 app.get('/checkuser', homeController.nav);
 app.get('/help', homeController.help);

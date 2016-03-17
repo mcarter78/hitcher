@@ -70,11 +70,13 @@ hitcher.deleteTrip = function(){
     method: 'DELETE',
     url: "/trips/" + tripId,
     success: function () {
-     window.location.replace('http://localhost:3000/trips/new'); //TODO: change URL when deploying
     }
-   });
+  });
 };
-
+// hitcher.completeTrip = function(){
+//   e.preventDefault();
+//   window.location.replace('http://localhost:3000/trips/here'); 
+// };
 hitcher.updateTrip = function(e){
   e.preventDefault();
   var trip = $(e.target).serialize();
@@ -88,22 +90,7 @@ hitcher.updateTrip = function(e){
      window.location.replace('http://localhost:3000/trips/' + tripId); // TODO:  change URL when deploying
     }
   });
-
 };
-
-// hitcher.deleteTrip = function(e){
-//   var id = $(e.target).parent(".trip").attr("id");
-//   var ajaxOption = {
-//     url: '/trips/' + id,
-//     type: 'DELETE',
-//     success: function(result) {
-//       // clear it from the page upon successful delete
-//       $("#" + id).remove();
-//     }
-//   };
-//   // execute ajax
-//   $.ajax(ajaxOption);
-// }
 
 hitcher.renderNav = function(){
     $.get('/checkuser', function(user){

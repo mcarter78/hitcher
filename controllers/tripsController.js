@@ -73,6 +73,10 @@ var tripsController = {
     Trip.findByIdAndRemove({_id: id}, function(err){
         if (err) res.status(500).send();
     });
+    // res.redirect('./partials/trips/new');
+  }, 
+  completeTrip: function(req, res) {
+    res.render('./partials/trips/here');
   }
 };
 
