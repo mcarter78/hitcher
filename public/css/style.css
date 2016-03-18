@@ -128,3 +128,17 @@ input {
     background-color: #EEEEEE;
     height:300px;
   }
+
+  /* Icons */
+
+  .fa-phone:before {
+  content: "\f095";
+}
+
+  .fa-twitter:before {
+  content: "\f099";
+}
+.fa-facebook-f:before,
+.fa-facebook:before {
+  content: "\f09a";
+}
