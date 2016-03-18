@@ -85,18 +85,18 @@ var tripsController = {
         if (err) res.status(500).send();
     });
     // res.redirect('./partials/trips/new');
-  }, 
+  },
   checkForDriver: function(req, res){
     var id = req.user._id;
     console.log(id);
-    User.findById(id, function(err, user){
-      if (user.trips[0].driverId === undefined){
+    User.findById(id, function(err, rider){
+      if (rider.trips[0].driverId === undefined){
         res.send(null);
       } else {
-        User.findById(user.trips[0].driverId, function(err, driver){
+        User.findById(rider.trips[0].driverId, function(err, driver){
           res.send(driver.trips[0]._id);
         });
-        
+
       }
     });
   },
