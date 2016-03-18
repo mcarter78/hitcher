@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://whispering-anchorage-42141.herokuapp.com/hitcher');
+mongoose.connect('mongodb://heroku_t4xb2wf9:8tktqqejaivcnf2sn642e0tam2@ds015939.mlab.com:15939/heroku_t4xb2wf9');
 var User = require('../models/user');
 
 var zipCodes = [94133, 94129, 94123, 94111, 94121, 94118, 94115, 94109, 94108,

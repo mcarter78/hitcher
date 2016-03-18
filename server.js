@@ -80,7 +80,7 @@ app.get('/contact', homeController.contact);
 app.get('/api/trips', tripsController.tripsApi);
 
 //connect to database
-mongoose.connect('mongodb://whispering-anchorage-42141.herokuapp.com/hitcher');
+mongoose.connect('mongodb://heroku_t4xb2wf9:8tktqqejaivcnf2sn642e0tam2@ds015939.mlab.com:15939/heroku_t4xb2wf9');
 process.on('exit', function(){ mongoose.disconnect(); });
 
 //set views engine
