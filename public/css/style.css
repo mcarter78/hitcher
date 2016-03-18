@@ -171,22 +171,42 @@ a:hover, a:focus, a:active {
     padding-top: 50px;
 }
 
+.underline-dark, .underline-white {
+    width: 15%;
+    height: 1px;
+    background: #333333;
+    display: inline-block;
+}
+.underline-white {
+    background: #ffffff;
+}
+
+/* End Section Styles */
+
 /* Form Elements */
 
 .form-control {
-  width: 100%;
+  /*width: 80%;*/
 }
 
-input {
+input, textarea, select {
 	padding: 1.1em;
 	color: #333;
   margin: 5px;
+  border-radius: 7px;
+  outline: none !important;
+  border: 1px solid lightgrey;
+
 }
 
 #home-form input:focus,
 #home-form input:active {
   outline: none;
 }
+
+
+
+
 
 /* End Form Elements */
 
@@ -205,4 +225,6 @@ input {
 
 ul {
   list-style-type: none;
+  margin: 0; 
+  padding: 0; 
 }
