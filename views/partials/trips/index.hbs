@@ -1,63 +1,58 @@
-<!-- User Section -->
+<!-- Current User Section -->
     <section id="user" class="bg-light-gray">
         <div class="container">
             <div class="row">
+            	<div class="col-sm-4 bg-light-gray">
                 <script id="user-template" type="text/x-handlebars-template">
-                	<div class="col-sm-4 bg-light-gray">
-										<div class="trip trip-card user">
+										<div class="trip trip-card">
 											<h3>Welcome, \{{profile.name}} </h3>
 											<h4 id="rider-message">Thank you for requesting a ride! Please stand by, we'll find you a driver!</h4>
 											<img class="img-responsive img-circle img-centered" src="\{{profile.imageUrl}}">
 											<p class="trip-attribute">Email: \{{profile.email}}</p>
 										</div>
-									</div>
 								</script>
+								<div id="current-user"></div>
+							</div>
             </div>
+        	</div>
         </div>
+      </div>
     </section>
+<!-- Current User Section End -->
 
+	
 
-
-<div class="page-content">
-	<div id="current-user"></div>
-	<div id="trip-list"></div>
-		<!-- client-side trip list -->
-		<!-- TODO: we are going to filter these by relevance later -->
-</div>
-
-		<!-- <script id="user-template" type="text/x-handlebars-template">
-			<div class="trip trip-card">
-				<h3>Welcome, \{{profile.name}} </h3>
-				<h3 id="rider-message">Thank you for requesting a ride! Please stand by, we'll find you a driver!<h3>
-				<img class="avatar img-responsive img-circle" src="\{{profile.imageUrl}}">
-				<p class="trip-attribute">Email: \{{profile.email}}</p>
-			</div>
-		</script> -->
-
-		<script id="trip-template" type="text/x-handlebars-template">
-		<!-- Shows Logged in user info -->
-		<h3>There are \{{users.length}} riders that need a ride: </h3>
-			\{{#each users}}
-				<div id="\{{_id}}" class="trip trip-card">
-					<p class="trip-attribute">Name: \{{name}}</p>
-					<p class="trip-attribute">Email: \{{email}}</p>
-					<p class="trip-attribute">Cell: \{{mobileNumber}}</p>
-					<p class="trip-attribute">FROM: \{{trips.[0].fromLocation}}</p>
-					<p class="trip-attribute">TO: \{{trips.[0].fromLocation}}</p>
-					<p class="trip-attribute">RiderID: \{{trips.[0].riderId}}</p>
-					<p class="trip-attribute">DriverID: \{{trips.[0].driverId}}</p>
-					<p class="trip-attribute">\{{trips.[0].toLocation}}</p>
-					<p class="trip-attribute">User ID: \{{_id}}</p>
-					<p class="trip-attribute">\{{thumbs}}</p>
-					<a href="/trips/\{{trips.[0]._id}}" id="\{{trips.[0]._id}}" class="btn showBtn">Pick up \{{name}}</a>
+<!-- Other Users -->
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+         		<div id="trip-list"></div>
+						<script id="trip-template" type="text/x-handlebars-template">
+						<!-- Shows Logged in user info -->
+						<h3>There are \{{users.length}} riders that need a ride: </h3>
+							\{{#each users}}
+								<div id="\{{_id}}" class="trip trip-card match-card">
+									<p class="trip-attribute">Name: \{{name}}</p>
+									<p class="trip-attribute">Email: \{{email}}</p>
+									<p class="trip-attribute">Cell: \{{mobileNumber}}</p>
+									<p class="trip-attribute">FROM: \{{trips.[0].fromLocation}}</p>
+									<p class="trip-attribute">TO: \{{trips.[0].fromLocation}}</p>
+									<p class="trip-attribute">RiderID: \{{trips.[0].riderId}}</p>
+									<p class="trip-attribute">DriverID: \{{trips.[0].driverId}}</p>
+									<p class="trip-attribute">\{{trips.[0].toLocation}}</p>
+									<p class="trip-attribute">User ID: \{{_id}}</p>
+									<p class="trip-attribute">\{{thumbs}}</p>
+									<a href="/trips/\{{trips.[0]._id}}" id="\{{trips.[0]._id}}" class="btn showBtn">Pick up \{{name}}</a>
+								</div>
+							\{{/each}}
+						<!-- logged in userInfo ends here -->
+						</script>
+					</div>
 				</div>
-			\{{/each}}
-		<!-- logged in userInfo ends here -->
-		</script>
+			</div>
 <script>
 	var allUsers = {{{allUsers}}};
 	hitcher.renderTrips(allUsers);
 	var currentUser = {{{loggedInUser}}};
 	hitcher.loggedIn(currentUser);
-	// window.data = allUsers;
 </script>

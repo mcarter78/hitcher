@@ -423,6 +423,13 @@ input[type=submit]:hover, input[type=submit]:active, input[type=submit]:focus {
   border: 7px solid #fff
   margin 10%; 
 }
+
+.user {
+  margin: 0 auto;
+  max-width: 200px; 
+  max-height: 200px; 
+}
+
 .user h4 {
   margin-top: 25px;
   margin-bottom: 0;
@@ -437,20 +444,29 @@ input[type=submit]:hover, input[type=submit]:active, input[type=submit]:focus {
 }
 /* End User Info Style */
 
-.trip.trip-card {
+.trip-card {
   border-radius: 0;
   background-clip: border-box;
   -webkit-box-shadow: none;
   box-shadow: none;
   border: 0;
   min-height: 100%;
-  padding: 100px 0;
-  text-align: center
-  border: solid 1px red;
+  padding: 2% 0;
+  text-align: center;
 }
 
 #trip-list {
-  /*border: solid 1px red; */
+  text-align: center; 
+}
+
+.trip-nav, .trip-nav button, #not-matched-nav, .trip-nav li {
+  display: inline-block;
+}
+
+.match-card {
+  outline: 1px solid lightgrey; 
+  margin: 5%;
+  padding: 10%;
 }
 
 ul {
