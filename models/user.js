@@ -3,7 +3,7 @@ var TripSchema = require('./trip').schema;
 var bcrypt = require('bcrypt');
 
 var UserSchema = new mongoose.Schema({
-  // _id: String, // THIS LINE MUST BE UNCOMMENTED TO SEED THE DB -- THEN COMMENT IT OUT AGAIN
+  _id: String, // THIS LINE MUST BE UNCOMMENTED TO SEED THE DB -- THEN COMMENT IT OUT AGAIN
   email: {type: String},
   name: {type: String},
   passwordDigest: {type: String},
