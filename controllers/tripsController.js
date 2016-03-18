@@ -51,6 +51,8 @@ var tripsController = {
       trip.driverId = userId;
       trip.save(function(err, updatedTrip){
         User.findById(updatedTrip.riderId, function(err, rider){
+          rider.trips[0].driverId = userId;
+          rider.save();
           User.findById(updatedTrip.driverId, function(err, driver){
             res.render('./partials/trips/show', { trip: JSON.stringify(updatedTrip),
               rider: JSON.stringify(rider), driver: JSON.stringify(driver) });
@@ -84,6 +86,20 @@ var tripsController = {
     });
     // res.redirect('./partials/trips/new');
   }, 
+  checkForDriver: function(req, res){
+    var id = req.user._id;
+    console.log(id);
+    User.findById(id, function(err, user){
+      if (user.trips[0].driverId === undefined){
+        res.send(null);
+      } else {
+        User.findById(user.trips[0].driverId, function(err, driver){
+          res.send(driver.trips[0]._id);
+        });
+        
+      }
+    });
+  },
   completeTrip: function(req, res) {
     res.render('./partials/trips/here');
   }

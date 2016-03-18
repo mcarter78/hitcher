@@ -71,6 +71,7 @@ app.get('/trips/:id', tripsController.showTrip);
 app.put('/trips/:id', tripsController.updateTrip);
 app.delete('/trips/:id', tripsController.deleteTrip);
 app.get('/arrived', tripsController.completeTrip);
+app.get('/drivercheck', tripsController.checkForDriver);
 //nav routes
 app.get('/checkuser', homeController.nav);
 app.get('/help', homeController.help);

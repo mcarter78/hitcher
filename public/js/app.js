@@ -37,7 +37,7 @@ hitcher.createTrip = function(e){
   console.log(trip);
   $.post('/trips', trip)
     .done(function(res){
-      console.log("trip created");
+      console.log("trip created", res);
       window.location.replace('http://localhost:3000/trips'); // TODO:  change URL when deploying
     });
 };
@@ -57,11 +57,31 @@ hitcher.renderTrips = function(user){
 
 hitcher.loggedIn = function(currentUser){
   console.log(currentUser);
-  var $currentUser = $("#current-user");
-  $currentUser.html("");
-  var userTemplate = Handlebars.compile($("#user-template").html());
-  var compiledHtml = userTemplate({profile: currentUser});
-  $currentUser.append(compiledHtml);
+    var $currentUser = $("#current-user");
+    $currentUser.html("");
+    var userTemplate = Handlebars.compile($("#user-template").html());
+    var compiledHtml = userTemplate({profile: currentUser});
+    $currentUser.append(compiledHtml);
+    console.log("YO!" , currentUser.trips[0].riderId);
+  if(currentUser.trips[0].riderId === undefined) {   
+    $("#rider-message").hide();
+  } else {
+    $("#trip-list").hide();
+    $("#rider-message").show();
+    setInterval(function(){
+      hitcher.checkForDriver(currentUser);
+      window.location.reload();
+    }, 10000);
+  }
+};
+
+hitcher.checkForDriver = function(driver){
+  $.get('/drivercheck', driver)
+    .done(function(res){
+      if(res !== ''){
+        window.location.replace('http://localhost:3000/trips/' + res); // TODO:  change URL when deploying
+      }
+    });
 };
 
 hitcher.showTrip = function(trips, rider, driver){
@@ -129,3 +149,4 @@ hitcher.renderNav = function(){
     }
   });
 };
+
