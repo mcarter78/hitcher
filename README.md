@@ -21,8 +21,9 @@ Check it out: https://whispering-anchorage-42141.herokuapp.com/
 
 * **Express**
 * **MongoDB/Mongoose**
-* **JavaScript**
+* **Handlebars**
 * **JQuery**
+* **Bootstrap**
 * **BCrypt**
 
 
