@@ -1,4 +1,3 @@
-
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://heroku_t4xb2wf9:8tktqqejaivcnf2sn642e0tam2@ds015939.mlab.com:15939/heroku_t4xb2wf9');
 var User = require('../models/user');
@@ -95,10 +94,22 @@ var fake_users = [
   {  email: "YellowBrickroad@ghoul.com",
     name: "Rolly Polly",
     passwordDigest: "Password",
-  imageUrl:"http://pre14.deviantart.net/f760/th/pre/i/2014/307/2/6/my_new_steam_avatar_by_some_dude2-d85614s.png",
+    imageUrl:"http://pre14.deviantart.net/f760/th/pre/i/2014/307/2/6/my_new_steam_avatar_by_some_dude2-d85614s.png",
     mobileNumber: "767-212-8898"
   },
-
+  {
+    email: "HamMan@jam.com",
+    name: "Ron Geary",
+    passwordDigest: "Password",
+    imageUrl:"https://pbs.twimg.com/media/CIWUgk_UwAAzM1V.png",
+    mobileNumber: "421-645-9012"
+  },
+  {  email: "YellowBrickroad@ghoul.com",
+    name: "Rolly Polly",
+    passwordDigest: "Password",
+    imageUrl:"http://pre14.deviantart.net/f760/th/pre/i/2014/307/2/6/my_new_steam_avatar_by_some_dude2-d85614s.png",
+    mobileNumber: "767-212-8898"
+  },
    { email: "Iwastheturkey@invade.com",
     name: "Gir",
     passwordDigest: "Password",
@@ -155,6 +166,41 @@ var fake_users = [
     mobileNumber: "140-1246-9012"
   },
   {
+    email: "Fishyman@golly.com",
+    name: "Tommy Fun",
+    passwordDigest: "Password",
+    imageUrl:"http://elitearmy.eu/forumz/uploads/avatars/avatar_27.jpg?dateline=1376785230",
+    mobileNumber: "111-214-5890"
+  },
+  {
+    email: "UsetheSchwartz@space.com",
+    name: "John Bullook",
+    passwordDigest: "Password",
+    imageUrl:"https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/16/16a6669bdb539a7df9bde590993329c7d830f0e0_full.jpg",
+    mobileNumber: "531-998-5712"
+  },
+  {
+   email: "ColbySalad@salad.com",
+    name: "Ram Grand",
+    passwordDigest: "Password",
+    imageUrl:"http://cdn.photonesta.com/images/i51.tinypic.com/1zwzpmr.png",
+    mobileNumber: "767-212-8898"
+  },
+  {
+    email: "Hollow@food.com",
+    name: "Sarah Bann",
+    passwordDigest: "Password",
+    imageUrl:"http://d3tagfjj1pibwj.cloudfront.net/wp-content/uploads/profile_builder/avatars/userID_482_originalAvatar_ninja-200x200.jpg",
+    mobileNumber: "113-878-8871"
+  },
+  {
+    email: "Toonland@Lamb.com",
+    name: "Bob Lumber",
+    passwordDigest: "Password",
+    imageUrl:"https://forums.uberent.com/data/avatars/l/1802/1802413.jpg?1394493521",
+    mobileNumber: "140-1246-9012"
+  },
+  {
     email: "ColbySalad@salad.com",
     name: "Ram Grand",
     passwordDigest: "Password",
@@ -167,6 +213,20 @@ var fake_users = [
     passwordDigest: "Password",
     imageUrl:"http://cdn.photonesta.com/images/i51.tinypic.com/1zwzpmr.png",
     mobileNumber: "767-212-8898"
+  },
+  {
+    email: "ColbySalad@salad.com",
+    name: "Ram Grand",
+    passwordDigest: "Password",
+    imageUrl:"http://cdn.photonesta.com/images/i51.tinypic.com/1zwzpmr.png",
+    mobileNumber: "767-212-8898"
+  },
+  {
+    email: "TombFall@River.com",
+    name: "Monday Goal",
+    passwordDigest: "Password",
+    imageUrl:"http://i.imgur.com/nKBoVWG.png",
+    mobileNumber: "512-612-462"
   },
   {
     email: "TombFall@River.com",
@@ -217,5 +277,6 @@ function randomZip(){
 }
 
 function randomNum(){
+  // pick 1 or 2 randomly
   return Math.ceil(Math.random() * (2 - 0));
 }
