@@ -1,28 +1,32 @@
+/* Light Green: #94D794*/
+/* Darker Green: #36CC7C*/
+
+
 body {
   font-family: "Open Sans", Arial, sans-serif;
   margin-top: 50px;
 }
 
-/* Begin Font Styles */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 30px 0;
-  padding: 0;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-weight: 700;
-  color: #262626;
-}
-
-p {
-  margin-bottom: 30px;
-}
-
 h1 {
-  font-size: 40px;
+    font-family: 'Hind', sans-serif;
+    text-transform: uppercase;
+    font-size: 68px;
 }
-
 h2 {
-  font-size: 35px;
-  font-weight: 700;
+    text-transform: uppercase;
+}
+h3 {
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+}
+h4 {
+    text-transform: uppercase;
+    color: #484f52;
+    padding: 10px 0;
+}
+p{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px; 
 }
 
 a {
@@ -34,39 +38,72 @@ a {
   transition: all 0.5s ease;
 }
 a:hover, a:focus, a:active {
-  outline: none;
-  text-decoration: none;
+  color: #36CC7C;
 }
 
 /* End Font Styles */
 
+.navbar-default .navbar-brand {
+  font-family: 'Pacifico', cursive;
+  color: #36CC7C;
+}
+
+.navbar-default:hover .navbar-brand:hover {
+  font-family: 'Pacifico', cursive;
+  color: #94D794;
+}
+
 /* Start Button Styles */
-.btn {
-  margin-right: 4px;
-  margin-bottom: 4px;
-  letter-spacing: 2px;
+.btn, .btn-alt {
+  padding: 20px 30px;
+  margin: 0;
+  line-height: 10px;
+  border-color: transparent;
+  border-radius: 30px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #94D794;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   text-transform: uppercase;
-  font-weight: 700;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  padding: 20px 40px;
+}
+
+.btn-alt {
+    border: 1px solid #94D794;
+    color: #94D794;
+    background-color: transparent;
+    font-weight: normal;
+}
 
 .delete-btn {
-  background: red;
+  /*background: red;*/
 }
 
 .here-btn {
-  background: lightgreen;
+  /*background: lightgreen;*/
 }
 
 .btn:hover, .btn:active, .btn:focus {
-  box-shadow: none;
-  outline: none;
+  border-color: transparent;
+    color: #fff;
+    background-color: #36CC7C;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    font-weight: 400;
+    background-image: none;
+}
+
+.btn-alt:hover, .btn-alt:active, .btn-alt:focus  {
+  border-color: #94D794;
+    color: #fff;
+    background-color: #94D794;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    font-weight: 400;
 }
 
 .deleteButton:hover, .deleteButton:active, .deleteButton:focus {
@@ -74,13 +111,70 @@ a:hover, a:focus, a:active {
   outline: none;
 }
 
-
 /* End Button Styles */
+
+/* Section Styles */
+
+.section1 {
+    background-image: linear-gradient(rgba(0,0,0, .4), rgba(0,0,0,.4)) ,url('https://images.unsplash.com/photo-1458169495136-854e4c39548a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=797a9cd83a1b87912c9559b9b36ab0b4#_=_');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    padding: 20% 0;
+    text-align: center;
+    color: #fff;
+}
+
+.section2 {
+    padding: 20% 0;
+}
+
+.section2 img {
+    border-radius: 100%;
+}
+
+.section3 {
+    background: linear-gradient(rgba(0,0,0, .4), rgba(0,0,0,.4)), url('https://images.unsplash.com/photo-1445368794737-0cf251429ca0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=c63a8604f84318e52dec9895c0b676ab') top left;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    padding: 20% 0;
+    text-align: center;
+    color: #fff;
+}
+.section4 {
+    padding: 200px 0;
+}
+.section5 {
+    padding: 200px 0;
+    background-color: #484f52;
+    color: #fff;
+}
+.section5 li {
+    list-style: none;
+    padding: 20px 0 10px 0;
+}
+.section5 i {
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+.pt50 {
+    padding-top: 50px;
+}
 
 /* Form Elements */
 
 .form-control {
-  /*width: 100%;*/
+  width: 100%;
 }
 
 input {
