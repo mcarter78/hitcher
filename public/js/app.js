@@ -2,7 +2,7 @@ $(document).ready(function(){
   console.log('app running');
   $('#home-form input').on('click', function(e){
     console.log('clicked');
-    window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
+    window.location.replace('/trips/new'); // TODO:  change URL when deploying
   });
   $('#logged-in-nav').hide();
   $('#logged-out-nav').hide();
@@ -17,7 +17,7 @@ hitcher.createUser = function(e){
   $.post('/users', user)
     .done(function(res){
     	console.log("user created", res);
-      window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
+      window.location.replace('/trips/new'); // TODO:  change URL when deploying
     });
 };
 
@@ -27,7 +27,7 @@ hitcher.login = function(e){
   $.post('/login', user)
     .done(function(res){
       console.log("user logged in", res);
-      window.location.replace('http://localhost:3000/trips/new'); // TODO:  change URL when deploying
+      window.location.replace('/trips/new'); // TODO:  change URL when deploying
     });
 };
 
@@ -38,7 +38,7 @@ hitcher.createTrip = function(e){
   $.post('/trips', trip)
     .done(function(res){
       console.log("trip created", res);
-      window.location.replace('http://localhost:3000/trips'); // TODO:  change URL when deploying
+      window.location.replace('/trips'); // TODO:  change URL when deploying
     });
 };
 
@@ -63,7 +63,7 @@ hitcher.loggedIn = function(currentUser){
     var compiledHtml = userTemplate({profile: currentUser});
     $currentUser.append(compiledHtml);
     console.log("YO!" , currentUser.trips[0].riderId);
-  if(currentUser.trips[0].riderId === undefined) {   
+  if(currentUser.trips[0].riderId === undefined) {
     $("#rider-message").hide();
   } else {
     $("#trip-list").hide();
@@ -79,7 +79,7 @@ hitcher.checkForDriver = function(driver){
   $.get('/drivercheck', driver)
     .done(function(res){
       if(res !== ''){
-        window.location.replace('http://localhost:3000/trips/' + res); // TODO:  change URL when deploying
+        window.location.replace('/trips/' + res); // TODO:  change URL when deploying
       }
     });
 };
@@ -127,7 +127,7 @@ hitcher.updateTrip = function(e){
     data: trip,
     success: function (data) {
       console.log(data);
-      window.location.replace('http://localhost:3000/trips/' + tripId); // TODO:  change URL when deploying
+      window.location.replace('/trips/' + tripId); // TODO:  change URL when deploying
     }
   });
 };
@@ -149,4 +149,3 @@ hitcher.renderNav = function(){
     }
   });
 };
-
