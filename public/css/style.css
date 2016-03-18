@@ -10,7 +10,7 @@ body {
 h1 {
     font-family: 'Hind', sans-serif;
     text-transform: uppercase;
-    font-size: 68px;
+    font-size: 45px;
 }
 h2 {
     text-transform: uppercase;
@@ -30,7 +30,7 @@ p{
 }
 
 a {
-  color: #1784fb;
+  color: #94D794;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
@@ -167,6 +167,13 @@ a:hover, a:focus, a:active {
     font-size: 18px;
 }
 
+.section-contact {
+  background-color: #222;
+  /*background-image: url(IMAGE!!!);*/
+  background-position: center;
+  background-repeat: no-repeat
+}
+
 .pt50 {
     padding-top: 50px;
 }
@@ -181,46 +188,269 @@ a:hover, a:focus, a:active {
     background: #ffffff;
 }
 
+.text-muted {
+  color: #777
+}
+
 /* End Section Styles */
+
+.bg-light-gray {
+  background-color: #f7f7f7
+}
+.bg-darkest-gray {
+  background-color: #222
+}
+
+/* Timeline Style */
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  position: relative
+}
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: "";
+  width: 2px;
+  background-color: #f1f1f1;
+  left: 40px;
+  margin-left: -1.5px
+}
+.timeline>li {
+  margin-bottom: 50px;
+  position: relative;
+  min-height: 50px
+}
+.timeline>li:before, .timeline>li:after {
+  content: " ";
+  display: table
+}
+.timeline>li:after {
+  clear: both
+}
+.timeline>li .timeline-panel {
+  width: 100%;
+  float: right;
+  padding: 0 20px 0 100px;
+  position: relative;
+  text-align: left
+}
+.timeline>li .timeline-panel:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto
+}
+.timeline>li .timeline-panel:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto
+}
+.timeline>li .timeline-image {
+  left: 0;
+  margin-left: 0;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: 100;
+  background-color: #fed136;
+  color: #fff;
+  border-radius: 100%;
+  border: 7px solid #f1f1f1;
+  text-align: center
+}
+
+.timeline>li .timeline-image h4 {
+  font-size: 10px;
+  color: white;
+  margin-top: 2px;
+  line-height: 14px
+}
+.timeline>li.timeline-inverted>.timeline-panel {
+  float: right;
+  text-align: left;
+  padding: 0 20px 0 100px
+}
+.timeline>li.timeline-inverted>.timeline-panel:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto
+}
+.timeline>li.timeline-inverted>.timeline-panel:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto
+}
+.timeline>li:last-child {
+  margin-bottom: 0
+}
+.timeline .timeline-heading h4 {
+  margin-top: 0;
+  color: inherit
+}
+.timeline .timeline-heading h4.subheading {
+  text-transform: none
+}
+.timeline .timeline-body>p, .timeline .timeline-body>ul {
+  margin-bottom: 0
+}
+@media (min-width:768px) {
+  .timeline:before {
+    left: 50%
+  }
+  .timeline>li {
+    margin-bottom: 100px;
+    min-height: 100px
+  }
+  .timeline>li .timeline-panel {
+    width: 41%;
+    float: left;
+    padding: 0 20px 20px 30px;
+    text-align: right
+  }
+  .timeline>li .timeline-image {
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    margin-left: -50px
+  }
+  .timeline>li .timeline-image h4 {
+    font-size: 13px;
+    margin-top: 16px;
+    line-height: 18px
+  }
+  .timeline>li.timeline-inverted>.timeline-panel {
+    float: right;
+    text-align: left;
+    padding: 0 30px 20px 20px
+  }
+}
+@media (min-width:992px) {
+  .timeline>li {
+    min-height: 150px
+  }
+  .timeline>li .timeline-panel {
+    padding: 0 20px 20px
+  }
+  .timeline>li .timeline-image {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px
+  }
+  .timeline>li .timeline-image h4 {
+    font-size: 18px;
+    margin-top: 30px;
+    line-height: 26px
+  }
+  .timeline>li.timeline-inverted>.timeline-panel {
+    padding: 0 20px 20px
+  }
+}
+@media (min-width:1200px) {
+  .timeline>li {
+    min-height: 170px
+  }
+  .timeline>li .timeline-panel {
+    padding: 0 20px 20px 100px
+  }
+  .timeline>li .timeline-image {
+    width: 170px;
+    height: 170px;
+    margin-left: -85px
+  }
+  .timeline>li .timeline-image h4 {
+    margin-top: 40px
+  }
+  .timeline>li.timeline-inverted>.timeline-panel {
+    padding: 0 100px 20px 20px
+  }
+}
+
+/* End Timeline Style */
 
 /* Form Elements */
 
-.form-control {
-  /*width: 80%;*/
-}
-
 input, textarea, select {
-	padding: 1.1em;
+	padding: 1em;
 	color: #333;
   margin: 5px;
   border-radius: 7px;
-  outline: none !important;
-  border: 1px solid lightgrey;
-
-}
-
-#home-form input:focus,
-#home-form input:active {
   outline: none;
+  border: 1px solid lightgrey;
+}
+
+input[type=submit] {
+  padding: 20px 30px;
+  margin: 0;
+  line-height: 10px;
+  border-color: transparent;
+  border-radius: 30px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #94D794;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  text-transform: uppercase;
+}
+
+input[type=submit]:hover, input[type=submit]:active, input[type=submit]:focus {
+  border-color: transparent;
+    color: #fff;
+    background-color: #36CC7C;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    font-weight: 400;
+    background-image: none;
 }
 
 
 
-
-
-/* End Form Elements */
-
-.avatar-image{
-  height:60px;
-  width:60px;
-  border: 3px solid grey;
-  border-radius: 50%;
+/* User Info Style */
+.user {
+  text-align: center;
+  margin-bottom: 50px
 }
+.user img {
+  margin: 0 auto;
+  border: 7px solid #fff
+  margin 10%; 
+}
+.user h4 {
+  margin-top: 25px;
+  margin-bottom: 0;
+  text-transform: none
+}
+.user p {
+  margin-top: 0
+}
+
+.img-centered {
+  margin: 0 auto
+}
+/* End User Info Style */
 
 .trip.trip-card {
-  border: 1px solid grey;
-  border-radius: 5px;
-  margin: 5px;
+  border-radius: 0;
+  background-clip: border-box;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 0;
+  min-height: 100%;
+  padding: 100px 0;
+  text-align: center
+  border: solid 1px red;
+}
+
+#trip-list {
+  /*border: solid 1px red; */
 }
 
 ul {
