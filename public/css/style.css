@@ -120,14 +120,6 @@ input {
   margin: 5px;
 }
 
-/* heroImage */
-
-.hero-unit {
-    background-image:url("https://unsplash.com/photos/AeSa8OoX_OU");
-    background-size:cover;
-    background-color: #EEEEEE;
-    height:300px;
-  }
 
   /* Icons */
 
