@@ -69,9 +69,19 @@ hitcher.loggedIn = function(currentUser){
     $("#trip-list").hide();
     $("#rider-message").show();
     setInterval(function(){
+      hitcher.checkForDriver(currentUser);
       window.location.reload();
     }, 10000);
   }
+};
+
+hitcher.checkForDriver = function(driver){
+  $.get('/drivercheck', driver)
+    .done(function(res){
+      if(res !== ''){
+        window.location.replace('http://localhost:3000/trips/' + res); // TODO:  change URL when deploying
+      }
+    });
 };
 
 hitcher.showTrip = function(trips, rider, driver){
