@@ -1,7 +1,7 @@
 # Hitcher
 
-WHY BUILD A WEB APP TO SHARE RIDES?
-BECAUSE PEOPLE ARE MORE INCLINED TO DO SOMETHING NICE WHEN IT IS EASY!
+Why build a web app to share rides? 
+Because people are more likely to do someting nice when it's easy.
 
 Check it out: https://whispering-anchorage-42141.herokuapp.com/
 
