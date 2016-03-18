@@ -1,3 +1,23 @@
+<!-- User Section -->
+    <section id="user" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <script id="user-template" type="text/x-handlebars-template">
+                	<div class="col-sm-4 bg-light-gray">
+										<div class="trip trip-card user">
+											<h3>Welcome, \{{profile.name}} </h3>
+											<h4 id="rider-message">Thank you for requesting a ride! Please stand by, we'll find you a driver!</h4>
+											<img class="img-responsive img-circle img-centered" src="\{{profile.imageUrl}}">
+											<p class="trip-attribute">Email: \{{profile.email}}</p>
+										</div>
+									</div>
+								</script>
+            </div>
+        </div>
+    </section>
+
+
+
 <div class="page-content">
 	<div id="current-user"></div>
 	<div id="trip-list"></div>
@@ -5,14 +25,14 @@
 		<!-- TODO: we are going to filter these by relevance later -->
 </div>
 
-		<script id="user-template" type="text/x-handlebars-template">
+		<!-- <script id="user-template" type="text/x-handlebars-template">
 			<div class="trip trip-card">
 				<h3>Welcome, \{{profile.name}} </h3>
 				<h3 id="rider-message">Thank you for requesting a ride! Please stand by, we'll find you a driver!<h3>
-				<img class="avatar-image" src="\{{profile.imageUrl}}">
+				<img class="avatar img-responsive img-circle" src="\{{profile.imageUrl}}">
 				<p class="trip-attribute">Email: \{{profile.email}}</p>
 			</div>
-		</script>
+		</script> -->
 
 		<script id="trip-template" type="text/x-handlebars-template">
 		<!-- Shows Logged in user info -->
